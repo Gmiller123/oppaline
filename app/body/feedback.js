@@ -3,7 +3,7 @@
 import React, { useRef } from "react";
 import Slider from "react-slick";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
-import Image from "next/imagae";
+import Image from "next/image";
 
 const CustomerFeedback = () => {
   const feedbackSlider = useRef(null);
