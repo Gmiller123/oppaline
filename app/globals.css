@@ -2,26 +2,167 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+#overlappingText {
+  text-shadow: 0px 4px 0px #7a0999, 4px 4px 0px #7a0999, 4px -4px 0px #7a0999,
+    -4px 4px 0px #7a0999, -4px -4px 0px #7a0999;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.flash-slide .slick-slide > div {
+  margin: 0 10px;
+}
+/* .flash-slide ul.slick-dots {
+  color: white;
+  bottom: -100px;
+}
+.flash-slide ul.slick-dots li {
+  color: white;
+}
+.flash-slide ul.slick-dots li button {
+  color: white;
+} */
+
+.custom-slick-indicator {
+  width: 30px;
+  height: 4px;
+  background-color: white;
+  margin-right: 6px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.custom-slick-indicator:hover {
+  background-color: #eee;
+}
+
+.slick-active .custom-slick-indicator {
+  background-color: #cd00df;
+}
+
+ul.slick-dots {
+  margin-bottom: 30px;
+}
+
+@media (max-width: 800px) {
+  ul.slick-dots {
+    margin-bottom: -50px;
   }
 }
+@media (min-width: 800px) and (max-width: 976px) {
+  ul.slick-dots {
+    margin-bottom: -50px;
+  }
+}
+ul.slick-dots li {
+  margin: 10px;
+}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.trending-slider .slick-slide > div {
+  margin: 0 10px;
+}
+
+.slick-arrow.slick-next,
+.slick-arrow.slick-prev {
+  font-size: 40px;
+  color: #7a0999;
+  border-radius: 50%;
+}
+
+.slick-arrow.slick-next::before,
+.slick-arrow.slick-prev::before {
+  font-size: 40px;
+  color: #7a0999;
+}
+
+.feedback {
+  display: flex;
+  gap: 50px;
+}
+
+.feedback .slick-slide > div {
+  margin: 0 20px;
+}
+
+.feedback ul.slick-dots {
+  bottom: -120px;
+}
+
+.custom-slick-indicator-feedback {
+  width: 30px;
+  height: 5px;
+  background-color: #d1d1d1;
+  margin-right: 6px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.custom-slick-indicator-feedback:hover {
+  background-color: #eee;
+}
+
+.slick-active .custom-slick-indicator-feedback {
+  background-color: #cd00df;
+}
+
+.data-\[state\=active\]\:shadow-sm[data-state="active"] {
+  --tw-shadow: none;
+  --tw-shadow-colored: none;
+  box-shadow: none;
+}
+
+.arrival .slick-slide > div {
+  padding: 0 5px;
+}
+
+.order-steps .step-container .step-container {
+  width: 33.33%;
+}
+.order-steps .step-container {
+  position: relative;
+}
+
+.order-steps .step-container .step::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 120%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1px dashed #7a0999;
+  width: 240px;
+}
+
+@media (max-width: 1250px) {
+  .order-steps .step-container .step::after {
+    width: 150px;
+  }
+}
+@media (max-width: 1000px) {
+  .order-steps .step-container .step::after {
+    width: 190px;
+  }
+}
+@media (max-width: 800px) {
+  .order-steps .step-container .step::after {
+    width: 170px;
+  }
+}
+@media (max-width: 600px) {
+  .order-steps .step-container .step::after {
+    width: 75px;
+  }
+}
+@media (max-width: 400px) {
+  .order-steps .step-container .step::after {
+    width: 32px;
+  }
 }
