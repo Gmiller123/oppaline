@@ -42,13 +42,13 @@ const TopFooter = () => {
 
           <div className=" flex flex-row items-center gap-3">
             <h3 className="text-[14px] text-[#666666]">Our APP ON MOBILE</h3>
-            <img
+            <Image
               width={120}
               height={120}
               src="/appstore.png"
               alt="appstore-logo"
             />
-            <img
+            <Image
               src="/googlepay.png"
               width={120}
               height={120}

@@ -168,7 +168,7 @@ const MidFooter = () => {
                 <a href="#">Payment Policy</a>
               </li>
               <li className="hover:text-[#000] font-light">
-                <a href="#">FAQ'S</a>
+                <a href="#">FAQ&aps;S</a>
               </li>
               <li className="hover:text-[#000] font-light">
                 <a href="#">Customization Charges</a>

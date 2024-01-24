@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import Slider from "react-slick";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import Image from "next/imagae";
 
 const CustomerFeedback = () => {
   const feedbackSlider = useRef(null);
@@ -79,7 +80,7 @@ const CustomerFeedback = () => {
           <Slider ref={feedbackSlider} className="feedback" {...settings}>
             <div className="slide-through">
               <div className="card flex md:flex-row flex-col items-center gap-[45px] border border-[#000000]/15 p-[28px] rounded-lg bg-[#fff]/40">
-                <img
+                <Image
                   src="/white-dress.png"
                   width={225}
                   height={300}
@@ -88,8 +89,8 @@ const CustomerFeedback = () => {
                 />
                 <div>
                   <p className=" text-base text-[#666] mb-[24px]">
-                    "Thanks to Opaline Shop, I found the perfect fit for my
-                    costume—a truly excellent purchase overall."
+                    Thanks to Opaline Shop, I found the perfect fit for my
+                    costume—a truly excellent purchase overall.
                   </p>
                   <h3 className=" text-base text-[#222]">Durga Lamsal</h3>
                   <h4 className=" text-base text-[#666]">Nepal</h4>
@@ -98,7 +99,7 @@ const CustomerFeedback = () => {
             </div>
             <div className="slide-through">
               <div className="card flex md:flex-row flex-col items-center gap-[45px] border border-[#000000]/15 p-[28px] rounded-lg bg-[#fff]/40">
-                <img
+                <Image
                   src="/white-dress.png"
                   width={225}
                   height={300}
@@ -107,8 +108,8 @@ const CustomerFeedback = () => {
                 />
                 <div>
                   <p className=" text-base text-[#666] mb-[24px]">
-                    "Thanks to Opaline Shop, I found the perfect fit for my
-                    costume—a truly excellent purchase overall."
+                    Thanks to Opaline Shop, I found the perfect fit for my
+                    costume—a truly excellent purchase overall.
                   </p>
                   <h3 className=" text-base text-[#222]">Durga Lamsal</h3>
                   <h4 className=" text-base text-[#666]">Nepal</h4>
@@ -117,7 +118,7 @@ const CustomerFeedback = () => {
             </div>
             <div className="slide-through">
               <div className="card flex md:flex-row flex-col items-center gap-[45px] border border-[#000000]/15 p-[28px] rounded-lg bg-[#fff]/40">
-                <img
+                <Image
                   src="/white-dress.png"
                   width={225}
                   height={300}
@@ -126,8 +127,8 @@ const CustomerFeedback = () => {
                 />
                 <div>
                   <p className=" text-base text-[#666] mb-[24px]">
-                    "Thanks to Opaline Shop, I found the perfect fit for my
-                    costume—a truly excellent purchase overall."
+                    Thanks to Opaline Shop, I found the perfect fit for my
+                    costume—a truly excellent purchase overall.
                   </p>
                   <h3 className=" text-base text-[#222]">Durga Lamsal</h3>
                   <h4 className=" text-base text-[#666]">Nepal</h4>

@@ -81,7 +81,7 @@ const MenCollection = () => {
             >
               <div className="">
                 <div className=" w-full relative">
-                  <img
+                  <Image
                     src="/mencollection-1.png"
                     width={467}
                     height={700}
@@ -101,7 +101,7 @@ const MenCollection = () => {
               </div>
               <div className="">
                 <div className=" w-full relative">
-                  <img
+                  <Image
                     src="/mencollection-2.png"
                     width={467}
                     height={700}
@@ -121,7 +121,7 @@ const MenCollection = () => {
               </div>
               <div className="">
                 <div className=" w-full relative">
-                  <img
+                  <Image
                     src="/mencollection-3.png"
                     width={467}
                     height={700}
@@ -141,7 +141,7 @@ const MenCollection = () => {
               </div>
               <div className="">
                 <div className=" w-full relative">
-                  <img
+                  <Image
                     src="/mencollection-4.png"
                     width={467}
                     height={700}
@@ -161,7 +161,7 @@ const MenCollection = () => {
               </div>
               <div className="">
                 <div className=" w-full relative">
-                  <img
+                  <Image
                     src="/mencollection-1.png"
                     width={467}
                     height={700}
@@ -181,7 +181,7 @@ const MenCollection = () => {
               </div>
               <div className="">
                 <div className=" w-full relative">
-                  <img
+                  <Image
                     src="/mencollection-2.png"
                     width={467}
                     height={700}
