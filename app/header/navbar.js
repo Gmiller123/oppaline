@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import {
   FaInstagram,
@@ -93,8 +93,8 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className=" bg-[#7A0999] w-full lg:px-5 relative">
-        <div className=" lg:max-w-[1350px] mx-auto flex flex-row lg:gap-10 xl:gap-32 items-center justify-between py-4">
+      <div className=" bg-[#7A0999] w-full lg:px-5 sticky top-0 z-50">
+        <div className=" lg:max-w-[1350px] relative mx-auto flex flex-row lg:gap-10 xl:gap-32 items-center justify-between py-4">
           <div className="lg:pl-0 pl-5">
             <Image
               width={220}
@@ -122,7 +122,7 @@ const Navbar = () => {
               </ul>
               <div className=" flex flex-row items-center relative">
                 <Input
-                  className=" py-3 lg:py-5 xl:py-6 min-w-[50px] focus-visible:ring-0 lg:pr-0 xl:pr-20 placeholder:text-[12px] placeholder:indent-2"
+                  className=" py-3 lg:py-5 xl:py-6 min-w-[50px] focus-visible:ring-0 pr-10 lg:pr-0 xl:pr-20 placeholder:text-[12px] placeholder:indent-2"
                   type="text"
                   placeholder="Search Here"
                 />

@@ -65,8 +65,8 @@ const Carousel = () => {
           </div>
         </div>
         <div className="">
-          <div className=" *:text-white flex md:flex-row flex-col items-start justify-between">
-            <div className=" flex flex-col items-center justify-center">
+          <div className=" *:text-white flex md:flex-row flex-col md:items-start items-center justify-between">
+            <div className=" flex flex-col items-center justify-center md:mb-0 mb-6">
               <h1 className=" text-center lg:text-[60px] md:text-[50px] text-[40px] leading-[50px] text-[#DE95F2]">
                 Year-End Fashion Deals
               </h1>
@@ -102,8 +102,8 @@ const Carousel = () => {
           </div>
         </div>
         <div className="">
-          <div className=" *:text-white flex md:flex-row flex-col items-start justify-between">
-            <div className=" flex flex-col items-center justify-center">
+          <div className=" *:text-white flex md:flex-row flex-col md:items-start items-center justify-between">
+            <div className=" flex flex-col items-center justify-center md:mb-0 mb-6">
               <h1 className=" text-center lg:text-[60px] md:text-[50px] text-[40px] leading-[50px] text-[#DE95F2]">
                 Year-End Fashion Deals
               </h1>

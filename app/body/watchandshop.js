@@ -117,9 +117,9 @@ const WatchAndShop = () => {
                           id="Vector"
                           d="M23.9998 2.17636L14.294 11.8822L9.11749 6.70577L1.35278 14.4705M18.1763 1.5293H24.5822V7.99989"
                           stroke="#7A0999"
-                          stroke-width="2.58824"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="2.58824"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         />
                       </svg>
                     </span>
@@ -172,9 +172,9 @@ const WatchAndShop = () => {
                           id="Vector"
                           d="M23.9998 2.17636L14.294 11.8822L9.11749 6.70577L1.35278 14.4705M18.1763 1.5293H24.5822V7.99989"
                           stroke="#7A0999"
-                          stroke-width="2.58824"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="2.58824"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         />
                       </svg>
                     </span>
@@ -227,9 +227,9 @@ const WatchAndShop = () => {
                           id="Vector"
                           d="M23.9998 2.17636L14.294 11.8822L9.11749 6.70577L1.35278 14.4705M18.1763 1.5293H24.5822V7.99989"
                           stroke="#7A0999"
-                          stroke-width="2.58824"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="2.58824"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         />
                       </svg>
                     </span>
@@ -282,9 +282,9 @@ const WatchAndShop = () => {
                           id="Vector"
                           d="M23.9998 2.17636L14.294 11.8822L9.11749 6.70577L1.35278 14.4705M18.1763 1.5293H24.5822V7.99989"
                           stroke="#7A0999"
-                          stroke-width="2.58824"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="2.58824"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         />
                       </svg>
                     </span>
@@ -337,9 +337,9 @@ const WatchAndShop = () => {
                           id="Vector"
                           d="M23.9998 2.17636L14.294 11.8822L9.11749 6.70577L1.35278 14.4705M18.1763 1.5293H24.5822V7.99989"
                           stroke="#7A0999"
-                          stroke-width="2.58824"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="2.58824"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         />
                       </svg>
                     </span>
