@@ -9,7 +9,7 @@ import { PiHandCoins } from "react-icons/pi";
 const Hero = () => {
   return (
     <>
-      <div className="w-full bg-[url('/hero-bg.png')] bg-cover bg-no-repeat bg-center relative px-5 md:px-8 lg:px-0">
+      <div className="w-full bg-[url('/hero-bg.png')] bg-cover bg-no-repeat bg-center relative z-0 px-5 md:px-8 lg:px-0">
         <span className="h-full w-full bg-no-repeat bg-left bg-[url('/flower-left.png')] absolute left-0 md:block hidden"></span>
         <span className="h-full w-full bg-no-repeat bg-right bg-[url('/flower-right.png')] absolute right-0 md:block hidden"></span>
 
