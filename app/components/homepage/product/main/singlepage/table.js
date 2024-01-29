@@ -47,7 +47,7 @@ const SizeTable = () => {
           </h1>
           <p className="text-center">
             To help you choose the best size, we recommend that you compare each
-            product's measurements with your own.
+            product&apos;s measurements with your own.
           </p>
 
           <Tabs

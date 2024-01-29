@@ -96,10 +96,10 @@ const CustomMeasurement = () => {
               SLECT STANDARD SIZE:
             </h3>
             <p className=" text-[12px] mb-[10px]">
-              Select your "EXACT Body Measurements" using our Size Chart. While
-              stitching we add some loosening for fitting.Select your "EXACT
-              Body Measurements" using our Size Chart. While stitching we add
-              some loosening for fitting.
+              Select your EXACT Body Measurements using our Size Chart. While
+              stitching we add some loosening for fitting.Select your EXACT Body
+              Measurements using our Size Chart. While stitching we add some
+              loosening for fitting.
             </p>
             <ol className="w-full list-decimal space-y-1">
               <li className=" text-sm font-medium flex items-center justify-between w-full">
@@ -826,8 +826,8 @@ const CustomMeasurement = () => {
                 </div>
               </RadioGroup>
               <p className=" text-[12px]">
-                Please select your "EXACT Body Measurements".While stitching we
-                add some loosening for fitting.Example: If Bust Size 34 inches
+                Please select your EXACT Body Measurements.While stitching we
+                add some loosening for fitting.Example If Bust Size 34 inches
                 is selected then your dress will be about 36 inch Bust Size.
               </p>
             </div>

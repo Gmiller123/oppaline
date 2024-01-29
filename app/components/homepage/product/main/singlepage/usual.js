@@ -21,13 +21,13 @@ const UsualMeasurement = () => {
 
       <div className=" flex items-center gap-3">
         <button className=" hover:bg-black hover:text-white text-black bg-white px-4 py-3 border border-[#98A2B3] transition-all">
-          38"/AU 12
+          38&quot;/AU 12
         </button>
         <button className=" hover:bg-black hover:text-white text-black bg-white px-4 py-3 border border-[#98A2B3] transition-all">
-          40"/AU 14
+          40&quot;/AU 14
         </button>
         <button className=" hover:bg-black hover:text-white text-black bg-white px-4 py-3 border border-[#98A2B3] transition-all">
-          42"/AU 16
+          42&quot;/AU 16
         </button>
       </div>
     </div>
