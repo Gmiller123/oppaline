@@ -37,7 +37,7 @@ const ContactUS = () => {
                 <Image
                   width={9}
                   height={12}
-                  src="/nepal-flag.svg"
+                  src="/homepage/nepal-flag.svg"
                   alt="nepal flag"
                   className=" absolute top-[45%] translate-y-[-50%] left-[62px]"
                 />

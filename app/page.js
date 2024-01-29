@@ -1,14 +1,12 @@
-import Body from "./body/page";
-import Footer from "./footer/page";
-import Header from "./header/page";
+import HomePage from "./components/homepage/page";
+import ProductPage from "./components/homepage/product/page";
 
 export default function Home() {
   return (
     <>
       <div>
-        <Header />
-        <Body />
-        <Footer />
+        <HomePage />
+        <ProductPage />
       </div>
     </>
   );
