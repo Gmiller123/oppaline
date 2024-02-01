@@ -144,7 +144,7 @@ const Navbar = () => {
                     <Link href="/components/homepage/header/login/register">
                       <DropdownMenuItem className="cursor-pointer">
                         Register
-                      </DropdownMenuItem> 
+                      </DropdownMenuItem>
                     </Link>
 
                     <Link href="/components/homepage/header/login">
