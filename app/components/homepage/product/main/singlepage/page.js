@@ -156,9 +156,12 @@ const SinglePage = () => {
                   type="number"
                   className="w-16 p-3 border-2 border-[#98A2B3]"
                 />
-                <button className=" flex-1 bg-black text-white font-bold py-3.5">
+                <Link
+                  href="/components/homepage/product/main/singlepage/checkout"
+                  className="text-center flex-1 bg-black text-white font-bold py-3.5"
+                >
                   Check Out
-                </button>
+                </Link>
                 <button className="flex items-center justify-center p-3 border border-[#98A2B3]">
                   <Image
                     width={24}
@@ -289,7 +292,7 @@ const SinglePage = () => {
               Overall rating
             </h2>
 
-            <div className=" space-y-[18px]">
+            <div className=" space-y-[10px]">
               <div>
                 <div className="flex items-center gap-3">
                   <h4 className=" text-lg">291</h4>

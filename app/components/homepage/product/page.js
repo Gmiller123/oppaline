@@ -1,4 +1,5 @@
 import React from "react";
+
 import MainProduct from "./main/page";
 
 const ProductPage = () => {

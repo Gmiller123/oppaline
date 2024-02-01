@@ -1,8 +1,8 @@
 import React from "react";
-import Body from "./body/page";
 import Header from "./header/page";
+import Body from "./body/page";
 
-const ProductPage = () => {
+const HomePage = () => {
   return (
     <div>
       <Header />
@@ -11,4 +11,4 @@ const ProductPage = () => {
   );
 };
 
-export default ProductPage;
+export default HomePage;

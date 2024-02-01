@@ -220,3 +220,32 @@ li::marker {
   height: 30px;
   width: 30px;
 }
+
+h4.optionforlogin {
+  position: relative;
+}
+
+h4.optionforlogin::after {
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  width: 150px;
+  border: 1px solid #d0d5dd;
+  margin-left: 20px;
+}
+h4.optionforlogin::before {
+  content: "";
+  top: 50%;
+  right: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  width: 150px;
+  border: 1px solid #d0d5dd;
+  margin-right: 20px;
+}
+
+/* .shadowContainer .inputShadow {
+  transition: box-shadow 0.3 ease-in-out;
+} */

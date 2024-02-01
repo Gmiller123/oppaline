@@ -137,19 +137,32 @@ const Navbar = () => {
               <span className=" flex flex-col items-center justify-center gap-1 ">
                 <FaRegUserCircle className="size-5" />
                 <DropdownMenu className="">
-                  <DropdownMenuTrigger className=" whitespace-nowrap flex flex-row items-center gap-1 dark:focus:bg-none text-[11px] border-0 ring-0 ring-offset-0 outline-none border-none">
+                  <DropdownMenuTrigger className=" cursor-pointer whitespace-nowrap flex flex-row items-center gap-1 dark:focus:bg-none text-[11px] border-0 ring-0 ring-offset-0 outline-none border-none">
                     Sign In <MdKeyboardArrowDown />
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="*:text-[#7A0999] *:hover:cursor-pointer">
-                    <DropdownMenuItem>Register</DropdownMenuItem>
-                    <DropdownMenuItem>Login</DropdownMenuItem>
+                  <DropdownMenuContent className="*:text-[#7A0999]">
+                    <Link href="/components/homepage/header/login/register">
+                      <DropdownMenuItem className="cursor-pointer">
+                        Register
+                      </DropdownMenuItem> 
+                    </Link>
+
+                    <Link href="/components/homepage/header/login">
+                      {" "}
+                      <DropdownMenuItem className="cursor-pointer">
+                        Login
+                      </DropdownMenuItem>
+                    </Link>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </span>
-              <span className=" flex flex-col items-center justify-center gap-1">
+              <Link
+                href="/components/homepage/product/main/singlepage/checkout"
+                className=" flex flex-col items-center justify-center gap-1"
+              >
                 <BsCart3 className="size-5" />
                 <h3 className=" text-[11px]">Cart</h3>
-              </span>
+              </Link>
               <span className=" flex flex-col items-center justify-center gap-1">
                 <IoIosHeartEmpty className="size-5" />
                 <h3 className=" text-[11px]">Wishlist</h3>
