@@ -31,7 +31,7 @@ const AsidePayment = () => {
 
         <div className="py-5">
           <div className=" text-[#344054] text-[12px] bg-[#F2F4F7] border-[#D0D5DD] border py-[10px] *:text-center">
-            <p>Hooray!</p>
+            <p>Hooray</p>
             <p>You&apos;ve qualified for $5 Delivery When You Spend $130+</p>
           </div>
         </div>
