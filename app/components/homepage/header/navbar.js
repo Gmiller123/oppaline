@@ -48,7 +48,7 @@ const Navbar = () => {
   return (
     <>
       <div
-        className=" lg:max-w-[1350px] md:max-w-[786pxs] mx-auto px-5 md:px-8 lg:px-0"
+        className=" lg:max-w-[1390px] md:max-w-[786px] mx-auto px-5 md:px-8 lg:px-10"
         style={blurBackgroundStyle}
       >
         <div className=" flex lg:flex-row flex-col lg:gap-0 gap-1 items-center justify-between *:text-[#7A0999] py-3">
@@ -94,8 +94,8 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className=" bg-[#7A0999] w-full lg:px-5 sticky top-0 z-50">
-        <div className=" lg:max-w-[1350px] relative mx-auto flex flex-row lg:gap-10 xl:gap-32 items-center justify-between py-4">
+      <div className=" bg-[#7A0999] w-full sticky top-0 z-50">
+        <div className="max-w-[1390px] lg:px-10 relative mx-auto flex flex-row lg:gap-10 xl:gap-32 items-center justify-between py-4">
           <div className="lg:pl-0 pl-5">
             <Link href="/">
               <Image
@@ -112,12 +112,12 @@ const Navbar = () => {
             onTransitionEnd={() => !isMenuOpen && setMenuOpen(false)}
             className={` ${
               isMenuOpen ? "block" : "hidden"
-            } flex-1 items-center justify-between lg:flex lg:flex-row flex-cols gap-6 bg-[#7A0999] lg:static absolute bottom-[-420px] z-30 w-full ${
+            } flex-1 items-center justify-between lg:flex lg:flex-row flex-cols gap-6 bg-[#7A0999] lg:static absolute bottom-[-400px] z-30 w-full ${
               isMenuOpen ? "transition-all duration-500 ease-in-out" : ""
             }`}
           >
             <div className=" lg:pt-0 pt-10 flex lg:flex-row lg:px-0 px-5 flex-col items-center gap-6 w-full">
-              <ul className="max-sm:w-full flex lg:flex-row gap-6 flex-col items-center *:text-white lg:gap-4 xl:gap-10 *:text-base *:hover:cursor-pointer *:font-bold">
+              <ul className="max-sm:w-full flex lg:flex-row gap-6 flex-col items-center *:text-white lg:gap-4 xl:gap-10 *:text-sm xl:*:text-base *:hover:cursor-pointer *:font-bold">
                 <Link href="/components/homepage/product">Product</Link>
                 <li>Men</li>
                 <li>Women</li>

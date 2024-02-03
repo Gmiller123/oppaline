@@ -1,48 +1,60 @@
 "use client";
 
-import React, { useRef } from "react";
+import React from "react";
 import Image from "next/image";
-import Slider from "react-slick";
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const MenCollection = () => {
-  const menCollectionSlider = useRef(null);
+  const data = [
+    {
+      img: "/mencollection-4.png",
+      description: "Short",
+    },
+    {
+      img: "/mencollection-1.png",
+      description: "Shirts",
+    },
+    {
+      img: "/mencollection-2.png",
+      description: "T-shirts",
+    },
+    {
+      img: "/mencollection-3.png",
+      description: "Vneck T-shirt",
+    },
+    {
+      img: "/mencollection-4.png",
+      description: "Short",
+    },
+    {
+      img: "/mencollection-2.png",
+      description: "Short",
+    },
+    {
+      img: "/mencollection-1.png",
+      description: "Shirts",
+    },
+    {
+      img: "/mencollection-2.png",
+      description: "T-shirts",
+    },
+    {
+      img: "/mencollection-3.png",
+      description: "Vneck T-shirt",
+    },
+    {
+      img: "/mencollection-4.png",
+      description: "Short",
+    },
+  ];
 
-  var settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    arrows: false,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    initialSlide: 0,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: false,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
   return (
     <div className=" bg-gradient-to-r from-[#fdfbff] to-[#f9e2ff] bg-opacity-20 py-[64px]  w-full px-5 md:px-8 lg:px-0">
       <div className="relative mb-[40px]">
@@ -65,149 +77,41 @@ const MenCollection = () => {
           </button>
         </div>
       </div>
-      <div className=" max-w-[1385px] mx-auto ">
-        <div className="relative max-w-[1390px] mx-auto">
-          <button
-            onClick={() => menCollectionSlider.current.slickPrev()}
-            className=" absolute z-10 top-[50%] translate-y-[-50%] left-0"
-          >
-            <MdKeyboardArrowLeft className=" text-[40px] text-[#7A0999] bg-[#FBEFFF] border hover:bg-[#7A0999] hover:text-white border-[#7A0999] rounded-full transition-all" />
-          </button>
-          <div>
-            <Slider
-              ref={menCollectionSlider}
-              className="feedback"
-              {...settings}
-            >
-              <div className="">
-                <div className=" w-full relative">
+      <div className=" max-w-[1390px] mx-auto px-5 lg:px-10">
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full relative"
+        >
+          <CarouselContent className="">
+            {data.map((item, index) => (
+              <CarouselItem
+                key={index}
+                className=" basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+              >
+                <div className="relative">
                   <Image
-                    src="/mencollection-1.png"
-                    width={467}
-                    height={700}
-                    alt="women with white dress"
-                    className=" object-cover w-full h-auto"
+                    width={345}
+                    height={410}
+                    src={item.img}
+                    alt="men's dress type collections"
+                    className="w-full h-full"
                   />
-                  <div className="flex items-center justify-center flex-col absolute top-[75%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-                    <h1 className=" text-white text-[36px] font-bold mb-2">
-                      Short
-                    </h1>
-
-                    <button className=" bg-[#fff] hover:text-[#fff] text-[10px] hover:border-[#fff] hover:border transition-all hover:bg-[#9504A2] text-[#9504A2] border-[0.804px] border-solid border-[#9504A2] px-[20px] py-[6px] font-black rounded-md">
-                      SHOP NOW
+                  <div className=" absolute left-1/2 -translate-x-1/2 bottom-10 text-white text-4xl">
+                    <h3 class="text-center">{item.description}</h3>
+                    <button className="bg-white rounded-sm text-[#7A0999] border-[#7A0999] px-3 py-1 text-base font-bold">
+                      SHOP MORE
                     </button>
                   </div>
                 </div>
-              </div>
-              <div className="">
-                <div className=" w-full relative">
-                  <Image
-                    src="/mencollection-2.png"
-                    width={467}
-                    height={700}
-                    alt="women with white dress"
-                    className=" object-cover w-full h-auto"
-                  />
-                  <div className="flex items-center justify-center flex-col absolute top-[75%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-                    <h1 className=" text-white text-[36px] font-bold mb-2">
-                      T-shirt
-                    </h1>
-
-                    <button className=" bg-[#fff] hover:text-[#fff] text-[10px] hover:border-[#fff] hover:border transition-all hover:bg-[#9504A2] text-[#9504A2] border-[0.804px] border-solid border-[#9504A2] px-[20px] py-[6px] font-black rounded-md">
-                      SHOP NOW
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div className="">
-                <div className=" w-full relative">
-                  <Image
-                    src="/mencollection-3.png"
-                    width={467}
-                    height={700}
-                    alt="women with white dress"
-                    className=" object-cover w-full h-auto"
-                  />
-                  <div className="flex items-center justify-center flex-col absolute top-[75%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-                    <h1 className=" text-white text-[36px] font-bold mb-2">
-                      Shirts
-                    </h1>
-
-                    <button className=" bg-[#fff] hover:text-[#fff] text-[10px] hover:border-[#fff] hover:border transition-all hover:bg-[#9504A2] text-[#9504A2] border-[0.804px] border-solid border-[#9504A2] px-[20px] py-[6px] font-black rounded-md">
-                      SHOP NOW
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div className="">
-                <div className=" w-full relative">
-                  <Image
-                    src="/mencollection-4.png"
-                    width={467}
-                    height={700}
-                    alt="women with white dress"
-                    className=" object-cover w-full h-auto"
-                  />
-                  <div className="w-full flex items-center justify-center flex-col absolute top-[75%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-                    <h1 className=" text-white text-[36px] font-bold mb-2">
-                      Vneck T-shirt
-                    </h1>
-
-                    <button className=" bg-[#fff] hover:text-[#fff] text-[10px] hover:border-[#fff] hover:border transition-all hover:bg-[#9504A2] text-[#9504A2] border-[0.804px] border-solid border-[#9504A2] px-[20px] py-[6px] font-black rounded-md">
-                      SHOP NOW
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div className="">
-                <div className=" w-full relative">
-                  <Image
-                    src="/mencollection-1.png"
-                    width={467}
-                    height={700}
-                    alt="women with white dress"
-                    className=" object-cover w-full h-auto"
-                  />
-                  <div className="flex items-center justify-center flex-col absolute top-[75%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-                    <h1 className=" text-white text-[36px] font-bold mb-2">
-                      Short
-                    </h1>
-
-                    <button className=" bg-[#fff] hover:text-[#fff] text-[10px] hover:border-[#fff] hover:border transition-all hover:bg-[#9504A2] text-[#9504A2] border-[0.804px] border-solid border-[#9504A2] px-[20px] py-[6px] font-black rounded-md">
-                      SHOP NOW
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div className="">
-                <div className=" w-full relative">
-                  <Image
-                    src="/mencollection-2.png"
-                    width={467}
-                    height={700}
-                    alt="women with white dress"
-                    className=" object-cover w-full h-auto"
-                  />
-                  <div className="flex items-center justify-center flex-col absolute top-[75%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-                    <h1 className=" text-white text-[36px] font-bold mb-2">
-                      T-shirt
-                    </h1>
-
-                    <button className=" bg-[#fff] hover:text-[#fff] text-[10px] hover:border-[#fff] hover:border transition-all hover:bg-[#9504A2] text-[#9504A2] border-[0.804px] border-solid border-[#9504A2] px-[20px] py-[6px] font-black rounded-md">
-                      SHOP NOW
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </Slider>
-            <button
-              onClick={() => menCollectionSlider.current.slickNext()}
-              className=" absolute z-10 top-[50%] translate-y-[-50%] right-0"
-            >
-              <MdKeyboardArrowRight className=" text-[40px] text-[#7A0999] bg-[#FBEFFF] border border-[#7A0999] hover:bg-[#7A0999] hover:text-white rounded-full transition-all " />
-            </button>
-          </div>
-        </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="absolute left-[-15px] bg-[#FBEFFF] border-[#7A0999] size-10 text-[#000]/80" />
+          <CarouselNext className="absolute right-[-15px] bg-[#FBEFFF] border-[#7A0999] size-10 text-[#000]/80" />
+        </Carousel>
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import Image from "next/image";
 const WomenCollection = () => {
   return (
     <div className=" bg-gradient-to-r from-[#fdfbff] to-[#f9e2ff] bg-opacity-20 py-[64px] w-full ">
-      <div className=" max-w-[1350px] mx-auto px-5 md:px-8 lg:px-0">
+      <div className="max-w-[1390px] mx-auto px-5 lg:px-10">
         <div className=" flex flex-row items-center gap-5 mb-[20px] md:mb-[60px]">
           <div className="border border-[#FBD2FF] w-fit px-1.5 py-2.5 rounded-lg bg-white">
             <svg

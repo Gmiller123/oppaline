@@ -1,52 +1,58 @@
 "use client";
 
-import React, { useRef } from "react";
-import Slider from "react-slick";
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import React from "react";
 import Image from "next/image";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const CustomerFeedback = () => {
-  const feedbackSlider = useRef(null);
-  var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 2,
-    arrows: false,
-    slidesToScroll: 1,
-    customPaging: function () {
-      return <div className="custom-slick-indicator-feedback"></div>;
+  const sliderImg = [
+    {
+      img: "/white-dress.png",
+      feedbackDescription: {
+        feedback:
+          "  Thanks to Opaline Shop, I found the perfect fit for my costume—a truly excellent purchase overall.",
+        personName: "Aditya Lamsal",
+        country: "Kavre, Nepal",
+      },
     },
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: false,
-        },
+    {
+      img: "/white-dress.png",
+      feedbackDescription: {
+        feedback:
+          "  Thanks to Opaline Shop, I found the perfect fit for my costume—a truly excellent purchase overall.",
+        personName: "Ajay Shresta",
+        country: "Kathmandu, Nepal",
       },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 1,
-        },
+    },
+    {
+      img: "/white-dress.png",
+      feedbackDescription: {
+        feedback:
+          "  Thanks to Opaline Shop, I found the perfect fit for my costume—a truly excellent purchase overall.",
+        personName: "Jhonny Sah",
+        country: "Chennai, india",
       },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
+    },
+    {
+      img: "/white-dress.png",
+      feedbackDescription: {
+        feedback:
+          "  Thanks to Opaline Shop, I found the perfect fit for my costume—a truly excellent purchase overall.",
+        personName: "Ajay Shresta",
+        country: "Kathmandu, Nepal",
       },
-    ],
-  };
+    },
+  ];
+
   return (
     <div className=" bg-gradient-to-r from-[#fdfbff] to-[#f9e2ff] bg-opacity-20 py-[64px] w-full">
-      <div className=" max-w-[1350px] mx-auto px-5 md:px-8 lg:px-12">
+      <div className=" max-w-[1390px] mx-auto px-5 lg:px-10">
         <div className=" flex flex-row items-center gap-[21px] mb-[61px]">
           <div className="border border-[#FBD2FF] w-fit px-1.5 py-2.5 rounded-lg bg-white">
             <svg
@@ -69,80 +75,47 @@ const CustomerFeedback = () => {
           <h1 className=" text-[36px] text-[#57066D]">Customer Feedback</h1>
         </div>
       </div>
-      <div className=" max-w-[1385px] mx-auto px-5 md:px-8 lg:px-0">
-        <div className=" relative">
-          <button
-            onClick={() => feedbackSlider.current.slickPrev()}
-            className=" absolute z-10 top-[50%] translate-y-[-50%] left-0"
-          >
-            <MdKeyboardArrowLeft className=" text-[40px] text-[#7A0999] bg-[#FBEFFF] border hover:bg-[#7A0999] hover:text-white border-[#7A0999] rounded-full transition-all" />
-          </button>
-          <Slider ref={feedbackSlider} className="feedback" {...settings}>
-            <div className="slide-through">
-              <div className="card flex md:flex-row flex-col items-center gap-[45px] border border-[#000000]/15 p-[28px] rounded-lg bg-[#fff]/40">
-                <Image
-                  src="/white-dress.png"
-                  width={225}
-                  height={300}
-                  alt="women with white dress"
-                  className=" object-cover w-full"
-                />
-                <div>
-                  <p className=" text-base text-[#666] mb-[24px]">
-                    Thanks to Opaline Shop, I found the perfect fit for my
-                    costume—a truly excellent purchase overall.
-                  </p>
-                  <h3 className=" text-base text-[#222]">Durga Lamsal</h3>
-                  <h4 className=" text-base text-[#666]">Nepal</h4>
+      <div className=" max-w-[1390px] mx-auto px-5 lg:px-10">
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className=" relative w-full"
+        >
+          <CarouselContent className="-ml-10">
+            {sliderImg.map((item, index) => (
+              <CarouselItem
+                key={index}
+                className="pl-10 basis-full lg:basis-1/2"
+              >
+                <div className=" flex md:flex-row flex-col items-center gap-[45px] border border-[#000000]/15 p-[28px] rounded-lg bg-[#fff]/40">
+                  <Image
+                    src={item.img}
+                    width={225}
+                    height={300}
+                    alt="women with white dress"
+                    className=" object-cover w-full"
+                  />
+                  <div>
+                    <p className=" text-base text-[#666] mb-[24px]">
+                      {item.feedbackDescription.feedback}
+                    </p>
+                    <h3 className=" text-base text-[#222]">
+                      {" "}
+                      {item.feedbackDescription.personName}
+                    </h3>
+                    <h4 className=" text-base text-[#666]">
+                      {item.feedbackDescription.country}
+                    </h4>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div className="slide-through">
-              <div className="card flex md:flex-row flex-col items-center gap-[45px] border border-[#000000]/15 p-[28px] rounded-lg bg-[#fff]/40">
-                <Image
-                  src="/white-dress.png"
-                  width={225}
-                  height={300}
-                  alt="women with white dress"
-                  className=" object-cover w-full"
-                />
-                <div>
-                  <p className=" text-base text-[#666] mb-[24px]">
-                    Thanks to Opaline Shop, I found the perfect fit for my
-                    costume—a truly excellent purchase overall.
-                  </p>
-                  <h3 className=" text-base text-[#222]">Durga Lamsal</h3>
-                  <h4 className=" text-base text-[#666]">Nepal</h4>
-                </div>
-              </div>
-            </div>
-            <div className="slide-through">
-              <div className="card flex md:flex-row flex-col items-center gap-[45px] border border-[#000000]/15 p-[28px] rounded-lg bg-[#fff]/40">
-                <Image
-                  src="/white-dress.png"
-                  width={225}
-                  height={300}
-                  alt="women with white dress"
-                  className=" object-cover w-full"
-                />
-                <div>
-                  <p className=" text-base text-[#666] mb-[24px]">
-                    Thanks to Opaline Shop, I found the perfect fit for my
-                    costume—a truly excellent purchase overall.
-                  </p>
-                  <h3 className=" text-base text-[#222]">Durga Lamsal</h3>
-                  <h4 className=" text-base text-[#666]">Nepal</h4>
-                </div>
-              </div>
-            </div>
-          </Slider>
-          <button
-            onClick={() => feedbackSlider.current.slickNext()}
-            className=" absolute z-10 top-[50%] translate-y-[-50%] right-0"
-          >
-            <MdKeyboardArrowRight className=" text-[40px] text-[#7A0999] bg-[#FBEFFF] border border-[#7A0999] hover:bg-[#7A0999] hover:text-white rounded-full transition-all " />
-          </button>
-        </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="absolute -left-5 top-1/2 -translate-y-1/2  bg-[#FBEFFF] border-[#7A0999] size-10 text-[#000]/80" />
+          <CarouselNext className="absolute -right-5 top-1/2 -translate-y-1/2  bg-[#FBEFFF] border-[#7A0999] size-10 text-[#000]/80" />
+        </Carousel>
       </div>
     </div>
   );

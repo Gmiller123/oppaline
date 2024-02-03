@@ -53,7 +53,7 @@ const FlashSale = () => {
 
   return (
     <div className=" bg-[#230B34] w-full">
-      <div className=" max-w-[1350px] mx-auto px-5 md:px-8 lg:px-0 h-full py-[84px]">
+      <div className=" max-w-[1390px] mx-auto px-5 lg:px-10 h-full py-[84px]">
         <div className=" grid grid-cols-8">
           <div className=" lg:col-span-3 col-span-8">
             <Slider className="flash-slide" {...settings}>

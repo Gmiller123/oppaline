@@ -10,7 +10,7 @@ const CustomFit = () => {
         <div className="h-[131px] w-full bg-white border-2 border-dotted border-[#7A0999]"></div>
         <div className="h-[131px] w-full bg-white border-2 border-dotted border-[#7A0999]"></div>
       </div>
-      <div className=" max-w-[1250px] mx-auto z-10 bg-white relative  px-5 md:px-8 lg:px-0">
+      <div className=" max-w-[1250px] mx-auto z-10 bg-white relative px-5 md:px-8 lg:px-0">
         <div className="grid grid-cols-8 border-2 border-dotted border-[#7A0999] relative px-5 md:px-8 lg:px-0">
           <div className=" lg:col-span-6 col-span-8 order-step-container md:pt-20 pt-6 pb-[40px] lg:pb-[118px] lg:px-20 ">
             <div className=" flex flex-row items-center gap-5 mb-[20px] md:mb-[55px]">

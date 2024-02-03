@@ -47,6 +47,12 @@ ul.slick-dots {
   margin-bottom: 30px;
 }
 
+@media (max-width: 1025px) {
+  ul.slick-dots {
+    margin-bottom: -50px;
+  }
+}
+
 @media (max-width: 800px) {
   ul.slick-dots {
     margin-bottom: -50px;

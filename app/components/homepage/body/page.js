@@ -14,7 +14,7 @@ import CustomFit from "./customfit";
 
 const Body = () => {
   return (
-    <div>
+    <div className="">
       <WatchAndShop />
       <FlashSale />
       <TrendingWomenCollection />

@@ -5,10 +5,18 @@ import Image from "next/image";
 const JustForYou = () => {
   let [count, setCount] = useState(0);
 
+  function increment() {
+    setCount(count + 1);
+  }
+
+  function decrement() {
+    setCount(count - 1);
+  }
+
   return (
     <div className=" bg-gradient-to-r from-[#fdfbff] to-[#f9e2ff] bg-opacity-20 py-[64px] w-full">
-      <div className=" max-w-[1350px] md:pb-[60px] mx-auto w-full px-5 md:px-8 lg:px-0">
-        <div className="grid lg:grid-cols-2 grid-cols-1 gap-10 w-full">
+      <div className=" max-w-[1390px] mx-auto px-5 lg:px-10 md:pb-[60px] w-full md:px-8">
+        <div className="grid xl:grid-cols-2 grid-cols-1 gap-10 w-full">
           <div>
             <div className=" flex flex-col gap-3">
               <Image
@@ -144,56 +152,56 @@ const JustForYou = () => {
                     height={100}
                     src="/box-img.png"
                     alt="traditional dress "
-                    className="object-cover "
+                    className="object-cover w-full h-full"
                   />
                   <Image
                     width={80}
                     height={100}
                     src="/box-img.png"
                     alt="traditional dress "
-                    className="object-cover "
+                    className="object-cover w-full h-full"
                   />
                   <Image
                     width={80}
                     height={100}
                     src="/box-img.png"
                     alt="traditional dress "
-                    className="object-cover "
+                    className="object-cover w-full h-full"
                   />
                   <Image
                     width={80}
                     height={100}
                     src="/box-img.png"
                     alt="traditional dress "
-                    className="object-cover "
+                    className="object-cover w-full h-full"
                   />
                   <Image
                     width={80}
                     height={100}
                     src="/box-img.png"
                     alt="traditional dress "
-                    className="object-cover "
+                    className="object-cover w-full h-full"
                   />
                   <Image
                     width={80}
                     height={100}
                     src="/box-img.png"
                     alt="traditional dress "
-                    className="object-cover "
+                    className="object-cover w-full h-full"
                   />
                   <Image
                     width={80}
                     height={100}
                     src="/box-img.png"
                     alt="traditional dress "
-                    className="object-cover "
+                    className="object-cover w-full h-full"
                   />
                   <Image
                     width={80}
                     height={100}
                     src="/box-img.png"
                     alt="traditional dress "
-                    className="object-cover "
+                    className="object-cover w-full h-full"
                   />
                 </div>
               </div>
@@ -224,17 +232,17 @@ const JustForYou = () => {
                 <span className=" flex flex-col">
                   <h6>QTY:</h6>
                   <span className="flex gap-5 bg-white border border-solid border-[#D2D2D2] px-[30px] py-[14px]">
-                    <button onClick={() => setCount(count--)}>-</button>
+                    <button onClick={decrement}>-</button>
                     <h4>{count}</h4>
-                    <button onClick={() => setCount(count++)}>+</button>
+                    <button onClick={increment}>+</button>
                   </span>
                 </span>
               </div>
               <div className=" flex items-center justify-between lg:gap-0 gap-6">
-                <button className="lg:text-lg md:text-base text-sm border bg-[#FFFFFF] border-solid border-[#686868]/50 lg:py-[24px] lg:px-[87px] md:py-[18px] md:px-[60px] rounded py-[14px] px-[40px]">
+                <button className="xl:text-lg lg:text-base text-sm border bg-[#FFFFFF] border-solid border-[#686868]/50 lg:py-[24px] lg:px-[87px] md:py-[18px] md:px-[60px] rounded py-[14px] px-[40px]">
                   ADD TO WISHLIST
                 </button>
-                <button className="text-white  lg:text-lg md:text-base text-sm  border border-solid bg-[#7A0999] border-[#686868]/50 lg:py-[24px] lg:px-[87px] md:py-[18px] md:px-[60px] py-[14px] px-[40px] rounded ">
+                <button className="text-white  xl:text-lg lg:text-base text-sm  border border-solid bg-[#7A0999] border-[#686868]/50 lg:py-[24px] lg:px-[87px] md:py-[18px] md:px-[60px] py-[14px] px-[40px] rounded ">
                   BUY IT NOW
                 </button>
               </div>

@@ -5,7 +5,7 @@ import Image from "next/image";
 const NewArrival = () => {
   return (
     <div className=" bg-gradient-to-r from-[#fdfbff] to-[#f9e2ff] bg-opacity-20 py-[64px] w-full">
-      <div className=" max-w-[1350px] mx-auto px-5 md:px-8 lg:px-0">
+      <div className=" max-w-[1390px] mx-auto px-5 lg:px-10">
         <Tabs defaultValue="women" className="w-full divide-y-2">
           <div className=" flex lg:flex-row flex-col lg:items-end gap-5 pb-3">
             <div className=" flex flex-row items-center gap-5">

@@ -24,17 +24,28 @@ const CartComponent = ({ productImage, productDetails }) => {
           height={160}
           alt="cart imgs example"
         />
-        <div className=" space-y-[11px]">
-          {productDetails && productDetails.name && (
-            <h2> {productDetails.name}</h2>
+        <div className=" flex flex-col justify-around gap-2">
+          {productDetails && (
+            <h2 className=" max-w-[250px] font-semibold text-lg leading-6">
+              {" "}
+              {productDetails.name}
+            </h2>
           )}
-          <ul className=" *:text-">
-            {productDetails && <li>{productDetails.line}</li>}
-            {productDetails && <li>{productDetails.color}</li>}
-            {productDetails && <li>{productDetails.size}</li>}
-            {productDetails && <li>{productDetails.unitPrice}</li>}
+          <ul className=" *:text-[12px] text-[#475467]">
+            {productDetails && (
+              <li className=" leading-4">Line: {productDetails.line}</li>
+            )}
+            {productDetails && (
+              <li className=" leading-4">Color: {productDetails.color}</li>
+            )}
+            {productDetails && (
+              <li className=" leading-4">Size: {productDetails.size}</li>
+            )}
+            {productDetails && (
+              <li className=" leading-4">Unit: {productDetails.unitPrice}</li>
+            )}
           </ul>
-          <div className=" flex gap-[11px]">
+          <div className=" flex gap-[11px] *:text-[12px]">
             <Link className="underline" href="/">
               Edit
             </Link>
@@ -67,15 +78,15 @@ const CartComponent = ({ productImage, productDetails }) => {
           </div>
         </div>
       </div>
-      <div className=" flex items-center gap-1">
+      <div className=" flex items-center gap-1 *:text-base">
         {productDetails && (
-          <p>
+          <p className=" text-[#475467]">
             {" "}
-            <strike>{productDetails.originalPrice}</strike>
+            <strike>${productDetails.originalPrice}</strike>
           </p>
         )}
 
-        {productDetails && <p>{productDetails.discountedPrice}</p>}
+        {productDetails && <p>${productDetails.discountedPrice}</p>}
       </div>
     </div>
   );

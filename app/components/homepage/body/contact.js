@@ -3,8 +3,8 @@ import Image from "next/image";
 
 const ContactUS = () => {
   return (
-    <div className=" bg-gradient-to-r from-[#fdfbff] to-[#f9e2ff] bg-opacity-20 py-[64px] w-full h-full px-5 md:px-8 lg:px-0">
-      <div className=" max-w-[1350px] mx-auto relative w-full h-full">
+    <div className=" bg-gradient-to-r from-[#fdfbff] to-[#f9e2ff] bg-opacity-20 py-[64px] w-full h-full ">
+      <div className=" max-w-[1390px] mx-auto px-5 lg:px-10 relative w-full h-full">
         <Image
           width={1500}
           height={1800}
@@ -37,9 +37,9 @@ const ContactUS = () => {
                 <Image
                   width={9}
                   height={12}
-                  src="/homepage/nepal-flag.svg"
+                  src="/nepal-flag.svg"
                   alt="nepal flag"
-                  className=" absolute top-[45%] translate-y-[-50%] left-[62px]"
+                  className=" absolute top-[50%] translate-y-[-50%] left-[62px]"
                 />
               </span>
               <input

@@ -4,7 +4,7 @@ import Image from "next/image";
 const Category = () => {
   return (
     <div className=" bg-gradient-to-r from-[#fdfbff] to-[#f9e2ff] bg-opacity-20 py-[64px] w-full">
-      <div className=" max-w-[1350px] mx-auto px-5 md:px-8 lg:px-0">
+      <div className=" max-w-[1390px] mx-auto px-5 lg:px-10">
         <div className=" grid grid-cols-2 gap-[21px]">
           <div className=" col-span-2 w-full relative ">
             <Image

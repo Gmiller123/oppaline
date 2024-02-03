@@ -3,6 +3,7 @@ import CartComponent from "./cartcomponent";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
+import AsidePayment from "./aside";
 
 const Cart = () => {
   const products = [
@@ -13,7 +14,7 @@ const Cart = () => {
         line: "123456",
         color: "Turkish Bloom Grey",
         size: "1 - in Stock",
-        price: 539.96,
+        unitPrice: 539.96,
         originalPrice: 799.0,
         discountedPrice: 599.5,
       },
@@ -25,7 +26,7 @@ const Cart = () => {
         line: "787248",
         color: "Spanish Bloom White",
         size: "4 - in Stock",
-        price: 189.96,
+        unitPrice: 189.96,
         originalPrice: 999.0,
         discountedPrice: 799.5,
       },
@@ -37,7 +38,7 @@ const Cart = () => {
         line: "787248",
         color: "Irish Bloom White",
         size: "8 - in Stock",
-        price: 139.96,
+        unitPrice: 139.96,
         originalPrice: 399.0,
         discountedPrice: 299.5,
       },
@@ -54,7 +55,7 @@ const Cart = () => {
         </Breadcrumbs>
 
         <div className=" grid grid-cols-3 divide-x">
-          <div className=" col-span-2 pr-5">
+          <div className=" lg:col-span-2 col-span-3 pr-5">
             <div className=" flex items-center gap-5">
               <h1 className=" font-bold text-[22px]">Shopping Bag</h1>
               <h5 className=" text-[#667085] text-sm">3 items</h5>
@@ -70,7 +71,9 @@ const Cart = () => {
             </div>
           </div>
 
-          <div className=" col-span-1 pl-5"></div>
+          <div className="lg:col-span-1 col-span-3 pl-5">
+            <AsidePayment />
+          </div>
         </div>
       </div>
     </div>
