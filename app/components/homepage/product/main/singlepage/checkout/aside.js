@@ -12,7 +12,7 @@ const AsidePayment = () => {
           <button className=" bg-black text-[#F2F4F7] font-bold text-base w-full py-3">
             CHECKOUT
           </button>
-          <input  
+          <input
             className="border py-3 text-base text-[#000] indent-4 w-full"
             type="text"
             placeholder="Promo Code"
@@ -32,7 +32,7 @@ const AsidePayment = () => {
         <div className="py-5">
           <div className=" text-[#344054] text-[12px] bg-[#F2F4F7] border-[#D0D5DD] border py-[10px] *:text-center">
             <p>Hooray!</p>
-            <p>You've qualified for $5 Delivery When You Spend $130+</p>
+            <p>You&apos;ve qualified for $5 Delivery When You Spend $130+</p>
           </div>
         </div>
 
