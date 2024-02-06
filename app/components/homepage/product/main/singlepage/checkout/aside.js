@@ -74,7 +74,7 @@ const AsidePayment = () => {
               CHECKOUT
             </button>
           </div>
-          <p className="text-base text-center">Or</p>
+          <p className="text-base text-center font-bold mb-3">Or</p>
 
           <div className=" space-y-5">
             <button className=" flex items-center justify-center gap-[10px] bg-[#F9FAFB] text-[#000] border border-[#D0D5DD] font-bold text-base w-full py-3">

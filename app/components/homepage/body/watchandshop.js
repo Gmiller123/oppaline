@@ -45,7 +45,7 @@ const WatchAndShop = () => {
           className="w-full"
         >
           <CarouselContent>
-            {Array.from({ length: 5 }).map((_, index) => (
+            {Array.from({ length: 6 }).map((_, index) => (
               <CarouselItem
                 key={index}
                 className=" basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4"

@@ -6,11 +6,11 @@ const JustForYou = () => {
   let [count, setCount] = useState(0);
 
   function increment() {
-    setCount(count + 1);
+    setCount(Math.abs(count + 1));
   }
 
   function decrement() {
-    setCount(count - 1);
+    setCount(Math.max(0, count - 1));
   }
 
   return (

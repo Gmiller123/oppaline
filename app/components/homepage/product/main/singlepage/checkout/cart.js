@@ -54,8 +54,8 @@ const Cart = () => {
           <Typography color="text.primary">Cart</Typography>
         </Breadcrumbs>
 
-        <div className=" grid grid-cols-3 divide-x">
-          <div className=" lg:col-span-2 col-span-3 pr-5">
+        <div className=" grid grid-cols-3 md:divide-x divide-y">
+          <div className=" lg:col-span-2 col-span-3 md:pr-5">
             <div className=" flex items-center gap-5">
               <h1 className=" font-bold text-[22px]">Shopping Bag</h1>
               <h5 className=" text-[#667085] text-sm">3 items</h5>
@@ -71,7 +71,7 @@ const Cart = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-1 col-span-3 pl-5">
+          <div className="lg:col-span-1 col-span-3 max-sm:pt-5 pl-5">
             <AsidePayment />
           </div>
         </div>
