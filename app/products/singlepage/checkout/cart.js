@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import CartComponent from "./cartcomponent";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Typography from "@mui/material/Typography";
@@ -6,8 +7,10 @@ import Link from "next/link";
 import AsidePayment from "./aside";
 
 const Cart = () => {
-  const products = [
+  const [productInfo, setProductInfo] = useState([
     {
+      productId: 1,
+      quantity: 0,
       productImage: "/cart1.png",
       productDetails: {
         name: "Zosia Puff Sleeve Midi Dress 30% Off. Shop Today",
@@ -20,6 +23,8 @@ const Cart = () => {
       },
     },
     {
+      productId: 2,
+      quantity: 0,
       productImage: "/cart2.png",
       productDetails: {
         name: "Posuwa Luff Sleeve Midi Dress 80% Off. Shop Today",
@@ -32,6 +37,8 @@ const Cart = () => {
       },
     },
     {
+      productId: 3,
+      quantity: 0,
       productImage: "/cart3.png",
       productDetails: {
         name: "Zodiac yuff Sleeve Midi Dress 50% Off. Shop Today",
@@ -43,7 +50,22 @@ const Cart = () => {
         discountedPrice: 299.5,
       },
     },
-  ];
+    {
+      productId: 4,
+      quantity: 0,
+      productImage: "/cart3.png",
+      productDetails: {
+        name: "Zodiac yuff Sleeve Midi Dress 50% Off. Shop Today",
+        line: "787248",
+        color: "Irish Bloom White",
+        size: "8 - in Stock",
+        unitPrice: 139.96,
+        originalPrice: 399.0,
+        discountedPrice: 299.5,
+      },
+    },
+  ]);
+
   return (
     <div className="pt-5 pb-[100px]">
       <div className=" max-w-[1390px] mx-auto px-5">
@@ -58,14 +80,20 @@ const Cart = () => {
           <div className=" lg:col-span-2 col-span-3 md:pr-5">
             <div className=" flex items-center gap-5">
               <h1 className=" font-bold text-[22px]">Shopping Bag</h1>
-              <h5 className=" text-[#667085] text-sm">3 items</h5>
+              <h5 className=" text-[#667085] text-sm">
+                items {productInfo.length}
+              </h5>
             </div>
             <div className=" divide-y">
-              {products.map((item, index) => (
+              {productInfo.map((item) => (
                 <CartComponent
-                  key={index}
+                  key={item.productId}
                   productImage={item.productImage}
                   productDetails={item.productDetails}
+                  productInfo={productInfo}
+                  setProductInfo={setProductInfo}
+                  productId={item.productId}
+                  quantity={item.quantity}
                 />
               ))}
             </div>

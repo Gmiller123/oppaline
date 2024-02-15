@@ -1,10 +1,10 @@
 import React from "react";
-import FilterSection from "./filtersection";
+import ProductPage from "./product";
 
 const MainProduct = () => {
   return (
     <div>
-      <FilterSection />
+      <ProductPage />
     </div>
   );
 };

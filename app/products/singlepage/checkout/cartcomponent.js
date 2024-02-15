@@ -5,13 +5,44 @@ import Link from "next/link";
 import { GoPlus } from "react-icons/go";
 import { LuMinus } from "react-icons/lu";
 
-const CartComponent = ({ productImage, productDetails }) => {
+const CartComponent = ({
+  productImage,
+  productDetails,
+  productInfo,
+  setProductInfo,
+  productId,
+}) => {
   const [counter, setCounter] = useState(0);
 
-  const increment = () => {
+  const increment = (productId) => {
+    const updatedProductDetails = productInfo.map((product) => {
+      if (product.productId === productId) {
+        return {
+          ...product,
+          quantity: Math.abs(product.quantity + 1),
+        };
+      }
+      return product;
+    });
+
+    setProductInfo(updatedProductDetails);
+
     setCounter(Math.abs(counter + 1));
+    localStorage.setItem("productInfo", JSON.stringify(updatedProductDetails));
   };
-  const decrement = () => {
+
+  const decrement = (productId) => {
+    const updatedProductDetails = productInfo.map((product) => {
+      if (product.productId === productId) {
+        return {
+          ...product,
+          quantity: Math.max(0, product.quantity - 1),
+        };
+      }
+      return product;
+    });
+    setProductInfo(updatedProductDetails);
+    localStorage.setItem("productInfo", JSON.stringify(updatedProductDetails));
     setCounter(Math.max(0, counter - 1));
   };
 
@@ -33,16 +64,24 @@ const CartComponent = ({ productImage, productDetails }) => {
           )}
           <ul className=" *:md:text-[12px] *:text-[11px] text-[#475467]">
             {productDetails && (
-              <li className=" leading-4">Line: {productDetails.line}</li>
+              <li key={1} className=" leading-4">
+                Line: {productDetails.line}
+              </li>
             )}
             {productDetails && (
-              <li className=" leading-4">Color: {productDetails.color}</li>
+              <li key={2} className=" leading-4">
+                Color: {productDetails.color}
+              </li>
             )}
             {productDetails && (
-              <li className=" leading-4">Size: {productDetails.size}</li>
+              <li key={3} className=" leading-4">
+                Size: {productDetails.size}
+              </li>
             )}
             {productDetails && (
-              <li className=" leading-4">Unit: {productDetails.unitPrice}</li>
+              <li key={4} className=" leading-4">
+                Unit: {productDetails.unitPrice}
+              </li>
             )}
           </ul>
           <div className=" flex gap-[11px] md:*:text-[12px] *:text-[11px]">
@@ -68,7 +107,7 @@ const CartComponent = ({ productImage, productDetails }) => {
 
           <div className="flex divide-x-2 border border-[#EAECF0]">
             <div
-              onClick={decrement}
+              onClick={() => decrement(productId)}
               className=" flex items-center justify-center size-10 cursor-pointer"
             >
               <LuMinus className=" text-lg  active:scale-75" />
@@ -77,7 +116,7 @@ const CartComponent = ({ productImage, productDetails }) => {
               {counter}
             </div>
             <div
-              onClick={increment}
+              onClick={() => increment(productId)}
               className=" flex items-center justify-center size-10  cursor-pointer"
             >
               <GoPlus className=" text-lg  active:scale-75" />

@@ -118,7 +118,7 @@ const Navbar = () => {
           >
             <div className=" lg:pt-0 pt-10 flex lg:flex-row lg:px-0 px-5 flex-col items-center gap-6 w-full">
               <ul className="max-sm:w-full flex lg:flex-row gap-6 flex-col items-center *:text-white lg:gap-4 xl:gap-10 *:text-sm xl:*:text-base *:hover:cursor-pointer *:font-bold">
-                <Link href="/components/homepage/product">Product</Link>
+                <Link href="/products">Product</Link>
                 <li>Men</li>
                 <li>Women</li>
                 <li>Traditional</li>
@@ -141,13 +141,13 @@ const Navbar = () => {
                     Sign In <MdKeyboardArrowDown />
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="*:text-[#7A0999]">
-                    <Link href="/components/homepage/header/login/register">
+                    <Link href="/login/register">
                       <DropdownMenuItem className="cursor-pointer">
                         Register
                       </DropdownMenuItem>
                     </Link>
 
-                    <Link href="/components/homepage/header/login">
+                    <Link href="/login">
                       {" "}
                       <DropdownMenuItem className="cursor-pointer">
                         Login
@@ -157,7 +157,7 @@ const Navbar = () => {
                 </DropdownMenu>
               </span>
               <Link
-                href="/components/homepage/product/main/singlepage/checkout"
+                href="/products/singlepage/checkout"
                 className=" flex flex-col items-center justify-center gap-1"
               >
                 <BsCart3 className="size-5" />
