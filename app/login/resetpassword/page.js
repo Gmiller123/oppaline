@@ -55,10 +55,7 @@ const ResetPassword = () => {
 
             <p className=" text-sm text-center">
               Already have an account?{" "}
-              <Link
-                className=" hover:underline text-[#6E0586]"
-                href="/components/homepage/header/login"
-              >
+              <Link className=" hover:underline text-[#6E0586]" href="/login">
                 Login
               </Link>
             </p>

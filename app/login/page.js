@@ -71,7 +71,7 @@ const LoginPage = () => {
                     </label>
                   </div>
                   <Link
-                    href="/components/homepage/header/login/resetpassword"
+                    href="/login/resetpassword"
                     className="text-[#667085] text-[12px] md:text-sm hover:underline active:text-black"
                   >
                     Forget your password?
@@ -172,7 +172,7 @@ const LoginPage = () => {
               </li>
             </ul>
             <Link
-              href="/components/homepage/header/login/register"
+              href="/login/register"
               className=" text-center active:scale-95 font-medium border rounded-md hover:bg-[#6E0586] hover:text-white text-semibold border-[#6E0586] py-3 bg-transparent text-[12px] md:text-sm"
             >
               CREATE MY ACCOUNT

@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -9,100 +8,15 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-const ProductItems = () => {
-  const productDetails = [
-    {
-      image: "/pant-img2.png",
-      image2: "/pant-img1.png",
-      description: {
-        name: "Ursula Milano Tank",
-        discountPrice: "$79",
-        offeredPrice: "$54",
-        color: "+8 colors",
-        offerdiscount: "50% Off, Shop Today",
-      },
-    },
-    {
-      image: "/pant-img2.png",
-      image2: "/pant-img1.png",
-      description: {
-        name: "Ursula Milano Tank",
-        discountPrice: "$79",
-        offeredPrice: "$54",
-        color: "+8 colors",
-        offerdiscount: "50% Off, Shop Today",
-      },
-    },
-    {
-      image: "/pant-img2.png",
-      image2: "/pant-img1.png",
-      description: {
-        name: "Ursula Milano Tank",
-        discountPrice: "$79",
-        offeredPrice: "$54",
-        color: "+8 colors",
-        offerdiscount: "50% Off, Shop Today",
-      },
-    },
-    {
-      image: "/pant-img2.png",
-      image2: "/pant-img1.png",
-      description: {
-        name: "Ursula Milano Tank",
-        discountPrice: "$79",
-        offeredPrice: "$54",
-        color: "+8 colors",
-        offerdiscount: "50% Off, Shop Today",
-      },
-    },
-    {
-      image: "/pant-img2.png",
-      image2: "/pant-img1.png",
-      description: {
-        name: "Ursula Milano Tank",
-        discountPrice: "$79",
-        offeredPrice: "$54",
-        color: "+8 colors",
-        offerdiscount: "50% Off, Shop Today",
-      },
-    },
-    {
-      image: "/pant-img2.png",
-      image2: "/pant-img1.png",
-      description: {
-        name: "Ursula Milano Tank",
-        discountPrice: "$79",
-        offeredPrice: "$54",
-        color: "+8 colors",
-        offerdiscount: "50% Off, Shop Today",
-      },
-    },
-    {
-      image: "/pant-img2.png",
-      image2: "/pant-img1.png",
-      description: {
-        name: "Ursula Milano Tank",
-        discountPrice: "$79",
-        offeredPrice: "$54",
-        color: "+8 colors",
-        offerdiscount: "50% Off, Shop Today",
-      },
-    },
-    {
-      image: "/pant-img2.png",
-      image2: "/pant-img1.png",
-      description: {
-        name: "Ursula Milano Tank",
-        discountPrice: "$79",
-        offeredPrice: "$54",
-        color: "+8 colors",
-        offerdiscount: "50% Off, Shop Today",
-      },
-    },
-  ];
+const ProductItems = ({ productData, loading, error }) => {
+  const local_url_img = "http://192.168.1.2:8000";
+
+  if (loading) return "Data is fetching";
+  if (error) return "Error has occured";
+
   return (
     <div className=" grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-5 gap-y-10">
-      {productDetails.map((item, index) => (
+      {productData?.map((product, index) => (
         <Carousel key={index} className="relative">
           <CarouselContent>
             <CarouselItem className="flex flex-col">
@@ -110,7 +24,7 @@ const ProductItems = () => {
                 <Image
                   width={600}
                   height={849}
-                  src={item.image}
+                  src={local_url_img + "/images/" + product.image}
                   alt="pant image"
                   className="w-full h-auto"
                 />
@@ -120,15 +34,13 @@ const ProductItems = () => {
                 <div className="flex items-center justify-between pt-5">
                   <span className=" flex flex-col gap-2">
                     <h4 className="text-base font-semibold text-[#000]">
-                      {item.description.name}
+                      {product.name}
                     </h4>
                     <span className=" flex gap-1">
                       <h5 className="text-[#667085] font-semibold">
-                        <strike>{item.description.discountPrice}</strike>
+                        <strike>${product.discount}</strike>
                       </h5>
-                      <h5 className=" font-semibold">
-                        {item.description.offeredPrice}
-                      </h5>
+                      <h5 className=" font-semibold">${product.price}</h5>
                     </span>
                   </span>
                   <span className=" flex items-center gap-[10px] pr-[10px]">
@@ -161,37 +73,37 @@ const ProductItems = () => {
                   </span>
                   <span>
                     <h5 className=" text-[12px] text-[#000]">
-                      {item.description.color}
+                      +{product.discount} colors
                     </h5>
                   </span>
                 </span>
                 <h3 className=" text-[#890DAB] text-sm pt-[8px]">
-                  {item.description.offerdiscount}
+                  {`${product.discount}% Off, Shop Today`}
                 </h3>
               </div>
             </CarouselItem>
             <CarouselItem className="flex flex-col">
-              <Image
-                width={600}
-                height={849}
-                src={item.image2}
-                alt="pant image"
-                className=" h-full w-full object-cover"
-              />
+              <Link href="/products/singlepage">
+                <Image
+                  width={600}
+                  height={849}
+                  src={local_url_img + "/images/" + product.image}
+                  alt="pant image"
+                  className="w-full h-auto"
+                />
+              </Link>
 
               <div>
                 <div className="flex items-center justify-between pt-5">
                   <span className=" flex flex-col gap-2">
                     <h4 className="text-base font-semibold text-[#000]">
-                      {item.description.name}
+                      {product.name}
                     </h4>
                     <span className=" flex gap-1">
                       <h5 className="text-[#667085] font-semibold">
-                        <strike>{item.description.discountPrice}</strike>
+                        <strike>${product.discount}</strike>
                       </h5>
-                      <h5 className=" font-semibold">
-                        {item.description.offeredPrice}
-                      </h5>
+                      <h5 className=" font-semibold">${product.price}</h5>
                     </span>
                   </span>
                   <span className=" flex items-center gap-[10px] pr-[10px]">
@@ -224,37 +136,37 @@ const ProductItems = () => {
                   </span>
                   <span>
                     <h5 className=" text-[12px] text-[#000]">
-                      {item.description.color}
+                      +{product.discount} colors
                     </h5>
                   </span>
                 </span>
                 <h3 className=" text-[#890DAB] text-sm pt-[8px]">
-                  {item.description.offerdiscount}
+                  {`${product.discount}% Off, Shop Today`}
                 </h3>
               </div>
             </CarouselItem>
             <CarouselItem className="flex flex-col">
-              <Image
-                width={600}
-                height={849}
-                src={item.image}
-                alt="pant image"
-                className="h-full w-full object-cover"
-              />
+              <Link href="/products/singlepage">
+                <Image
+                  width={600}
+                  height={849}
+                  src={local_url_img + "/images/" + product.image}
+                  alt="pant image"
+                  className="w-full h-auto"
+                />
+              </Link>
 
               <div>
                 <div className="flex items-center justify-between pt-5">
                   <span className=" flex flex-col gap-2">
                     <h4 className="text-base font-semibold text-[#000]">
-                      {item.description.name}
+                      {product.name}
                     </h4>
                     <span className=" flex gap-1">
                       <h5 className="text-[#667085] font-semibold">
-                        <strike>{item.description.discountPrice}</strike>
+                        <strike>${product.discount}</strike>
                       </h5>
-                      <h5 className=" font-semibold">
-                        {item.description.offeredPrice}
-                      </h5>
+                      <h5 className=" font-semibold">${product.price}</h5>
                     </span>
                   </span>
                   <span className=" flex items-center gap-[10px] pr-[10px]">
@@ -287,16 +199,17 @@ const ProductItems = () => {
                   </span>
                   <span>
                     <h5 className=" text-[12px] text-[#000]">
-                      {item.description.color}
+                      +{product.discount} colors
                     </h5>
                   </span>
                 </span>
                 <h3 className=" text-[#890DAB] text-sm pt-[8px]">
-                  {item.description.offerdiscount}
+                  {`${product.discount}% Off, Shop Today`}
                 </h3>
               </div>
             </CarouselItem>
           </CarouselContent>
+
           <CarouselPrevious className="absolute left-5 top-[40%]" />
           <CarouselNext className="absolute right-5 top-[40%]" />
         </Carousel>

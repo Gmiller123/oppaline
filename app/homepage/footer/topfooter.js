@@ -26,7 +26,7 @@ const TopFooter = () => {
                 width={1500}
                 height={800}
                 alt="new-arrival-logo"
-                className=" size-10"
+                className=" size-10 "
               />
               <h3 className=" text-[#333333] text-[10px]">New Arrival</h3>
             </span>
@@ -47,12 +47,14 @@ const TopFooter = () => {
               height={120}
               src="/appstore.png"
               alt="appstore-logo"
+              className="w-auto h-auto"
             />
             <Image
               src="/googlepay.png"
               width={120}
               height={120}
               alt="googlepay-logo"
+              className="w-auto h-auto"
             />
           </div>
         </div>
