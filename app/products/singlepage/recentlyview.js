@@ -58,8 +58,8 @@ const RecentView = () => {
     },
   ];
   return (
-    <div>
-      <div className="border-right-container ">
+    <>
+      <div className="border-right-container mt-20">
         <h1 className=" font-bold lg:text-[28px] md:text-[25px] text-xl mb-10">
           Recently Viewed
         </h1>
@@ -255,7 +255,7 @@ const RecentView = () => {
           </Carousel>
         ))}
       </div>
-    </div>
+    </>
   );
 };
 

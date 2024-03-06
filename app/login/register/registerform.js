@@ -214,7 +214,7 @@ const RegisterForm = () => {
                   Already have an account?{" "}
                   <Link
                     className=" text-[#6E0586] hover:underline"
-                    href="/login/register"
+                    href="/login"
                   >
                     login
                   </Link>

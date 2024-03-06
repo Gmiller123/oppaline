@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const AsidePayment = () => {
   return (
-    <div className="p-[10px]">
+    <div className="lg:p-[10px]">
       <div className="w-full divide-y-2">
         <form className=" space-y-5 pb-5">
           <button className=" bg-black text-[#F2F4F7] font-bold text-base w-full py-3">
@@ -70,14 +70,14 @@ const AsidePayment = () => {
             </h4>
           </div>
           <div className="py-5">
-            <button className=" bg-black text-[#F2F4F7] font-bold text-base w-full py-3">
+            <button className=" bg-black text-[#F2F4F7] font-bold text-sm md:text-base w-full py-3">
               CHECKOUT
             </button>
           </div>
           <p className="text-base text-center font-bold mb-3">Or</p>
 
           <div className=" space-y-5">
-            <button className=" flex items-center justify-center gap-[10px] bg-[#F9FAFB] text-[#000] border border-[#D0D5DD] font-bold text-base w-full py-3">
+            <button className=" flex items-center justify-center gap-[10px] bg-[#F9FAFB] text-[#000] border border-[#D0D5DD] font-bold text-sm md:text-base w-full py-3">
               CHECKOUT With
               <Image
                 width={65.22}
@@ -86,7 +86,7 @@ const AsidePayment = () => {
                 alt="google pay logo"
               />
             </button>
-            <button className="flex items-center justify-center gap-[10px] bg-black text-[#F2F4F7] font-bold text-base w-full py-3">
+            <button className="flex items-center justify-center gap-[10px] bg-black text-[#F2F4F7] font-bold text-sm md:text-base w-full py-3">
               CHECKOUT WITH
               <Image
                 width={55.22}

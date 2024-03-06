@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/carousel";
 
 const ProductItems = ({ productData, loading, error }) => {
-  const local_url_img = "http://192.168.1.2:8000";
+  const local_url_img = "http://192.168.10.66:8000";
 
   if (loading) return "Data is fetching";
   if (error) return "Error has occured";
@@ -20,7 +20,7 @@ const ProductItems = ({ productData, loading, error }) => {
         <Carousel key={index} className="relative">
           <CarouselContent>
             <CarouselItem className="flex flex-col">
-              <Link href="/products/singlepage">
+              <Link href={`/products/${product._id}`}>
                 <Image
                   width={600}
                   height={849}
@@ -83,7 +83,7 @@ const ProductItems = ({ productData, loading, error }) => {
               </div>
             </CarouselItem>
             <CarouselItem className="flex flex-col">
-              <Link href="/products/singlepage">
+              <Link href={`/products/${product._id}`}>
                 <Image
                   width={600}
                   height={849}

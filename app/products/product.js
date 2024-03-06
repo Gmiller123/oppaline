@@ -6,14 +6,15 @@ import ProductItems from "./productItems";
 import React, { useEffect, useState } from "react";
 
 const ProductPage = () => {
-  const [catId, setCatId] = useState(null);
+  const [catId, setCatId] = useState([]);
   const [productData, setProductData] = useState([]);
   const [productCount, setProductCount] = useState(null);
   const [nextPage, setNextPage] = useState(false);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize] = useState(4);
+  const [pageSize] = useState(8);
   const [error, setError] = useState(false);
+
   const local_url = process.env.NEXT_PUBLIC_URL;
 
   const fetchApi = async () => {
@@ -22,7 +23,9 @@ const ProductPage = () => {
       const res = await fetch(
         local_url +
           `/product?page=${currentPage}&pageSize=${pageSize}${
-            catId !== null ? "&category=" + catId?._id : ""
+            catId.length > 0
+              ? "&category=" + catId?.map((item) => item._id).join(",")
+              : ""
           }`
       );
       const data = await res.json();
@@ -53,7 +56,7 @@ const ProductPage = () => {
       <div className="max-w-[1390px] mx-auto px-5 lg:px-10">
         <BreadcrumbsComp />
         <div className="grid grid-cols-5 pt-5 gap-5">
-          <ProductSidebar setCatId={setCatId} />
+          <ProductSidebar setCatId={setCatId} catId={catId} />
           <div className=" col-span-3 lg:col-span-4">
             {/* ---------------------------- product carousel ---------------------------- */}
 

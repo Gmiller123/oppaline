@@ -14,35 +14,11 @@ const CartComponent = ({
 }) => {
   const [counter, setCounter] = useState(0);
 
-  const increment = (productId) => {
-    const updatedProductDetails = productInfo.map((product) => {
-      if (product.productId === productId) {
-        return {
-          ...product,
-          quantity: Math.abs(product.quantity + 1),
-        };
-      }
-      return product;
-    });
-
-    setProductInfo(updatedProductDetails);
-
+  const increment = () => {
     setCounter(Math.abs(counter + 1));
-    localStorage.setItem("productInfo", JSON.stringify(updatedProductDetails));
   };
 
-  const decrement = (productId) => {
-    const updatedProductDetails = productInfo.map((product) => {
-      if (product.productId === productId) {
-        return {
-          ...product,
-          quantity: Math.max(0, product.quantity - 1),
-        };
-      }
-      return product;
-    });
-    setProductInfo(updatedProductDetails);
-    localStorage.setItem("productInfo", JSON.stringify(updatedProductDetails));
+  const decrement = () => {
     setCounter(Math.max(0, counter - 1));
   };
 

@@ -8,20 +8,25 @@ import ColorCategory from "./color";
 import MaterialCategoroy from "./material";
 import Category from "./category";
 
-const ProductSidebar = ({ setCatId }) => {
+const ProductSidebar = ({ setCatId, catId }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [category, setCategory] = useState([]);
-  const [parentCat, setParentCat] = useState(null);
+  const [parentCat, setParentCat] = useState([]);
   const [childCat, setChildCat] = useState([]);
 
-  const local_url = process.env.NEXT_PUBLIC_URL;
+  const local_url = process.env.NEXT_PUBLIC_URL; //base url
 
-  const fetchChildCategory = async (id) => {
+  const fetchChildCategory = async () => {
     try {
-      const res = await fetch(local_url + `/category/parent/${id}`);
-      const data = await res.json();
-      setChildCat(data.data);
+      if (parentCat.length > 0) {
+        const res = await fetch(
+          local_url +
+            `/category/parent/${parentCat.map((cat) => cat._id).join(",")}`
+        );
+        const data = await res.json();
+        setChildCat([...childCat, ...data.data]);
+      }
     } catch (err) {
       setLoading(false);
       setError(err);
@@ -30,10 +35,8 @@ const ProductSidebar = ({ setCatId }) => {
 
   useEffect(() => {
     setLoading(true);
-    const fetchApi = async () => {
+    const fetchCategoryApi = async () => {
       try {
-        // const res = await fetch(local_url + `/category`);
-
         const res = await fetch(local_url + `/category`);
         const data = await res.json();
         setCategory(data.data);
@@ -44,10 +47,10 @@ const ProductSidebar = ({ setCatId }) => {
     };
 
     if (parentCat) {
-      fetchChildCategory(parentCat?._id);
+      fetchChildCategory();
     }
 
-    fetchApi();
+    fetchCategoryApi();
   }, [parentCat]);
 
   if (!loading) return "Data is fetching";
@@ -56,8 +59,8 @@ const ProductSidebar = ({ setCatId }) => {
   const handleParentCategory = (e, cat) => {
     const { checked } = e.target;
     if (checked) {
-      setParentCat(cat);
-      setCatId(cat);
+      setParentCat([...parentCat, cat]);
+      setCatId([...catId, cat]);
     } else {
       setParentCat(null);
     }

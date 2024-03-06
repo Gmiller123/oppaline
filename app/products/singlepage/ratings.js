@@ -16,8 +16,8 @@ const Ratings = () => {
     },
   });
   return (
-    <div>
-      <div className="flex md:flex-row flex-col md:divide-x-2 md:divide-y-0 divide-y-2 border-b pb-5">
+    <>
+      <div className="flex md:flex-row flex-col md:divide-x-2 md:divide-y-0 divide-y-2 border-b pb-5 mt-10">
         <div className="flex flex-col justify-between space-y-[10px] md:pr-10 md:pb-0 pb-6">
           <div>
             <div className=" flex items-center gap-3 mb-3">
@@ -183,7 +183,7 @@ const Ratings = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

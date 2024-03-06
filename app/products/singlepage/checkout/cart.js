@@ -67,7 +67,7 @@ const Cart = () => {
   ]);
 
   return (
-    <div className="pt-5 pb-[100px]">
+    <div className="pt-5 pb-[50px] md:pb-[100px]">
       <div className=" max-w-[1390px] mx-auto px-5">
         <Breadcrumbs className="pb-5 mb-5" aria-label="breadcrumb">
           <Link underline="hover" color="inherit" href="/">
@@ -99,7 +99,7 @@ const Cart = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-1 col-span-3 max-sm:pt-5 pl-5">
+          <div className="lg:col-span-1 col-span-3 max-sm:pt-5 lg:pl-5">
             <AsidePayment />
           </div>
         </div>

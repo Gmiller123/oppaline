@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Rating from "@mui/material/Rating";
 import Image from "next/image";
@@ -15,31 +15,91 @@ import Feedback from "./feedback";
 import ReviewForm from "./reviewform";
 import RecentView from "./recentlyview";
 import BreadcrumbsLink from "./breadcrumb";
+import { GoPlus } from "react-icons/go";
+import { LuMinus } from "react-icons/lu";
 
-const images = [
-  {
-    original: "/product-img-fs.png",
-    thumbnail: "/product-img.png",
-  },
-  {
-    original: "/product-img1-fs.png",
-    thumbnail: "/product-img1.png",
-  },
-  {
-    original: "/product-img3-fs.png",
-    thumbnail: "/product-img2.png",
-  },
-  {
-    original: "/product-img2-fs.png",
-    thumbnail: "/product-img3.png",
-  },
-];
+const SinglePage = ({ data }) => {
+  const [value, setValue] = useState(2);
+  const [currentImage, setCurrentImage] = useState(null);
+  const [colorName, setColorName] = useState(null);
+  const [sumQuantityPrice, setSumQuantityPrice] = useState(1);
+  const [size, setSize] = useState([]);
+  const [price, setPrice] = useState();
+  const [discount, setDiscount] = useState();
 
-const SinglePage = () => {
-  const [value, setValue] = React.useState(2);
+  const showSize = (newSize) => {
+    if (size && size.includes(newSize)) {
+      return setSize(size.filter((size) => size !== newSize));
+    }
+    setSize([...size, newSize]);
+  };
+
+  useEffect(() => {
+    if (data) {
+      setCurrentImage(
+        data.image.map((item) => ({
+          original: "http://192.168.10.66:8000/images/" + item,
+          thumbnail: "http://192.168.10.66:8000/images/" + item,
+        }))
+      );
+    }
+  }, [data]);
+
+  const handleColorId = (color) => {
+    setColorName(color.name);
+    if (color.image.length > 0) {
+      setCurrentImage(
+        color.image.map((item) => ({
+          original: "http://192.168.10.66:8000/images/" + item,
+          thumbnail: "http://192.168.10.66:8000/images/" + item,
+        }))
+      );
+    } else {
+      setCurrentImage(
+        data.image.map((item) => ({
+          original: "http://192.168.10.66:8000/images/" + item,
+          thumbnail: "http://192.168.10.66:8000/images/" + item,
+        }))
+      );
+    }
+  };
+
+  const increment = () => {
+    setSumQuantityPrice(Math.abs(sumQuantityPrice + 1));
+  };
+
+  const decrement = () => {
+    setSumQuantityPrice(Math.max(1, sumQuantityPrice - 1));
+  };
+
+  const priceCalculation = (data) => {
+    const price = data?.price * sumQuantityPrice;
+    setPrice(price);
+    return price;
+  };
+  const discountCalculation = (data) => {
+    const discount = data?.price - data?.discount * sumQuantityPrice;
+    setDiscount(discount);
+    return discount;
+  };
+
+  const addToCart = (data) => {
+    let preparedProduct = {
+      product_id: data?._id,
+      product_name: data?.name,
+      discounted_price: discount,
+      product_price: price,
+      product_quantity: sumQuantityPrice,
+      product_size: size,
+      product_image: currentImage,
+      product_color: colorName,
+    };
+
+    localStorage.setItem("preparedProduct", JSON.stringify(preparedProduct));
+  };
 
   return (
-    <div className="">
+    <>
       <div className="max-w-[1390px] mx-auto px-5">
         <BreadcrumbsLink />
         <div className="pt-5 grid md:grid-cols-2 grid-cols-1 gap-10 pb-[72px]">
@@ -53,23 +113,25 @@ const SinglePage = () => {
               },
             }}
           >
-            <ImageGallery
-              lazyLoad={true}
-              thumbnailPosition="left"
-              showPlayButton={false}
-              items={images}
-              slideInterval="1000"
-              thumbnailHeight="100"
-              showFullscreenButton={false}
-              additionalClass=""
-            />
+            {currentImage && (
+              <ImageGallery
+                lazyLoad={true}
+                thumbnailPosition="left"
+                showPlayButton={false}
+                items={currentImage}
+                slideInterval="1000"
+                thumbnailHeight="100"
+                showFullscreenButton={false}
+                additionalClass=""
+              />
+            )}
           </div>
           <div className=" *:mb-[8px]  md:*:mb-[15px]">
-            <h6 className=" text-[#890DAB] text-sm md:text-lg font-medium">
-              LEHENGA
+            <h6 className=" text-[#890DAB] text-sm md:text-xl font-medium uppercase">
+              {data?.name}
             </h6>
-            <h3 className="text-[#000] text-lg md:text-[22px] font-bold">
-              GEORGETTE EMBROIDERY SALWAR KAMEEZ
+            <h3 className="text-[#333] text-sm md:text-[16px] font-medium">
+              {data?.content}
             </h3>
             <h5 className=" text-sm md:text-lg text-[#000] font-medium">
               NEW IN
@@ -91,49 +153,69 @@ const SinglePage = () => {
               </Box>
 
               <h5 className="text-sm text-[#98A2B3] pl-[5px]">(120)</h5>
-              <Link
+              {/* <Link
                 href="#"
                 className="bg-[#FCEBFF] hover:bg-[#B13CCD] px-[15px] py-2 rounded-[6px] text-[12px] md:text-sm hover:text-white ml-5 transition"
               >
                 Add your review
-              </Link>
+              </Link> */}
             </div>
             <div className="space-y-3">
-              <h4 className="">Colors: Red</h4>
+              <h4 className="capitalize">Colors: {colorName}</h4>
               <span className=" flex items-center gap-[10px]">
-                <div className=" bg-[#C4320A] size-[22px] hover:outline hover:outline-1 hover:outline-offset-4 rounded-full  cursor-pointer"></div>
-                <div
-                  value="red"
-                  className=" bg-[#4E5BA6] size-[22px] hover:outline hover:outline-1 hover:outline-offset-4 rounded-full  cursor-pointer"
-                ></div>
-                <div
-                  value="red"
-                  className=" bg-[#000] size-[22px] hover:outline hover:outline-1 hover:outline-offset-4 rounded-full  cursor-pointer"
-                ></div>
-                <div
-                  value="red"
-                  className=" bg-[#FDB022] size-[22px] hover:outline hover:outline-1 hover:outline-offset-4 rounded-full  cursor-pointer"
-                ></div>
+                {data?.color.map((color) => {
+                  return (
+                    <button
+                      key={color?._id}
+                      onClick={() => handleColorId(color)}
+                      className={`bg-[${color.color_code}] size-[22px] hover:outline hover:outline-1 hover:outline-offset-2 rounded-full  cursor-pointer`}
+                    ></button>
+                  );
+                })}
               </span>
             </div>
 
-            {/* <UsualMeasurement /> */}
-            <CustomMeasurement />
+            <UsualMeasurement
+              priceCalculation={priceCalculation}
+              discountCalculation={discountCalculation}
+              size={size}
+              showSize={showSize}
+              sumQuantityPrice={sumQuantityPrice}
+              data={data}
+              price={price}
+              discount={discount}
+            />
+            {/* <CustomMeasurement /> */}
 
             <div>
               <h4>QTY</h4>
               <div className="flex items-center justify-center gap-5 h-full">
-                <input
-                  placeholder="0"
-                  type="number"
-                  className="w-16 p-3 border-2 border-[#98A2B3]"
-                />
-                <Link
-                  href="/products/singlepage/checkout"
-                  className="text-center flex-1 bg-black text-white font-bold py-3.5"
+                <div className=" flex flex-col items-start space-y-1">
+                  <div className="flex divide-x-2 border border-[#EAECF0]">
+                    <div
+                      onClick={() => decrement()}
+                      className=" flex items-center justify-center size-10 cursor-pointer"
+                    >
+                      <LuMinus className=" text-lg  active:scale-75" />
+                    </div>
+                    <div className="font-bold flex items-center justify-center size-10">
+                      {sumQuantityPrice}
+                    </div>
+                    <div
+                      onClick={() => increment()}
+                      className=" flex items-center justify-center size-10  cursor-pointer"
+                    >
+                      <GoPlus className=" text-lg  active:scale-75" />
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={() => addToCart(data)}
+                  // href="/products/singlepage/checkout"
+                  className="capitalize text-center flex-1 bg-black text-white font-bold py-3.5"
                 >
-                  Check Out
-                </Link>
+                  add to cart
+                </button>
                 <button className="flex items-center justify-center p-3 border border-[#98A2B3]">
                   <Image
                     width={24}
@@ -156,11 +238,11 @@ const SinglePage = () => {
         </div>
 
         <Ratings />
-        <Feedback />
-        <ReviewForm />
+        {/* <Feedback />
+        <ReviewForm /> */}
         <RecentView />
       </div>
-    </div>
+    </>
   );
 };
 
