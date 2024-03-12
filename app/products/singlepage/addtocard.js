@@ -102,12 +102,8 @@ const AddToCart = ({ product }) => {
   const addToCart = (data) => {
     let preparedProduct = {
       product_id: data?._id,
-      product_name: data?.name,
-      discounted_price: discount,
-      product_price: price,
       product_quantity: sumQuantityPrice,
       product_size: size,
-      product_image: currentImage,
       product_color: colorName,
     };
 
@@ -121,12 +117,14 @@ const AddToCart = ({ product }) => {
       localStorageData.length > 0 &&
       localStorageData.filter((item) => item.product_id === data._id).length > 0
     ) {
-      let tempCartltems = [...localStorageData]; 
+      let tempCartItems = [...localStorageData];
       const filteredData = localStorageData.find(
         (item) => item.product_id === data._id
       );
 
-      // tempCartltems.push();
+        preparedProduct.product_quantity = parseInt() + parseInt()
+
+      tempCartItems.push(preparedProduct);
 
       localStorage.setItem("preparedProduct", JSON.stringify(filteredData));
     } else {
