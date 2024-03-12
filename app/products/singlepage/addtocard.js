@@ -102,12 +102,8 @@ const AddToCart = ({ product }) => {
   const addToCart = (data) => {
     let preparedProduct = {
       product_id: data?._id,
-      product_name: data?.name,
-      discounted_price: discount,
-      product_price: price,
       product_quantity: sumQuantityPrice,
-      product_size: size,
-      product_image: currentImage,
+      product_size: size, 
       product_color: colorName,
     };
 
@@ -121,16 +117,29 @@ const AddToCart = ({ product }) => {
       localStorageData.length > 0 &&
       localStorageData.filter((item) => item.product_id === data._id).length > 0
     ) {
+
+      // Shallow copy to modify array
       let tempCartltems = [...localStorageData]; 
+
+      // get the availble product by id
       const filteredData = localStorageData.find(
         (item) => item.product_id === data._id
       );
 
-      // tempCartltems.push();
+    
 
-      localStorage.setItem("preparedProduct", JSON.stringify(filteredData));
+      // object qty, size and product color update gareko
+      preparedProduct.product_quantity = parseInt(filteredData.product_quantity) + parseInt(sumQuantityPrice);
+      preparedProduct.product_size = [...filteredData.product_size, ...size];
+      preparedProduct.product_color = [...filteredData.product_color, ...colorName]
+
+      // update object array add gareko
+      tempCartltems.push(preparedProduct);
+
+      // finallay up[date in the local storage
+      localStorage.setItem("preparedProduct", JSON.stringify(tempCartltems));
     } else {
-      localStorageData.push(preparedProduct);
+      preparedProduct && localStorageData.push(preparedProduct);
       localStorage.setItem("preparedProduct", JSON.stringify(localStorageData));
     }
 
