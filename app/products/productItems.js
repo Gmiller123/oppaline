@@ -8,11 +8,24 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import AddToCart from "./singlepage/addtocard";
+
 const ProductItems = ({ productData, loading, error }) => {
-  const local_url_img = "http://192.168.10.66:8000";
+  const local_url_img = "http://192.168.10.77:8000";
 
   if (loading) return "Data is fetching";
-  if (error) return "Error has occured";
+  if (error)
+    return (
+      <h3 className=" text-red-500 font-medium">Error: Failed to fetch data</h3>
+    );
 
   return (
     <div className=" grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-5 gap-y-10">
@@ -44,15 +57,26 @@ const ProductItems = ({ productData, loading, error }) => {
                     </span>
                   </span>
                   <span className=" flex items-center gap-[10px] pr-[10px]">
-                    <Link href="#">
-                      <Image
-                        width={24}
-                        height={24}
-                        src="/addtocart-icon.svg"
-                        alt="add to card icon"
-                        className=" text-[#344054]"
-                      />
-                    </Link>
+                    <Dialog>
+                      <DialogTrigger>
+                        <Image
+                          width={24}
+                          height={24}
+                          src="/addtocart-icon.svg"
+                          alt="add to card icon"
+                          className=" text-[#344054]"
+                        />
+                      </DialogTrigger>
+                      <DialogContent className="max-w-7xl w-full">
+                        <DialogHeader>
+                          <DialogTitle className=" text-red-500"></DialogTitle>
+                          <DialogDescription>
+                            <AddToCart product={product._id} />
+                          </DialogDescription>
+                        </DialogHeader>
+                      </DialogContent>
+                    </Dialog>
+
                     <Link href="#">
                       <Image
                         width={24}

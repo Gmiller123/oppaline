@@ -6,7 +6,7 @@ import { FaCcPaypal } from "react-icons/fa";
 const MidFooter = () => {
   return (
     <div className=" bg-gradient-to-r from-[#fdfbff] to-[#f9e2ff] bg-opacity-20 py-[64px]">
-      <div className="max-w-[1350px] mx-auto px-5 md:px-8 lg:px-0">
+      <div className="max-w-[1350px] mx-auto px-5 lg:px-10">
         <div className="flex flex-row flex-wrap justify-between">
           <div>
             <h3 className=" mb-4 text-[14.306px] text-[#666666]">WOMEN WEAR</h3>

@@ -157,7 +157,7 @@ const Navbar = () => {
                 </DropdownMenu>
               </span>
               <Link
-                href="/products/singlepage/checkout"
+                href="/products/checkout"
                 className=" flex flex-col items-center justify-center gap-1"
               >
                 <BsCart3 className="size-5" />

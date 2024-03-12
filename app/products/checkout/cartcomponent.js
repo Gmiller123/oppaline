@@ -6,12 +6,16 @@ import { GoPlus } from "react-icons/go";
 import { LuMinus } from "react-icons/lu";
 
 const CartComponent = ({
-  productImage,
-  productDetails,
-  productInfo,
-  setProductInfo,
-  productId,
+  name,
+  price,
+  discountedPrice,
+  color,
+  size,
+  quantity,
+  image,
+  key,
 }) => {
+  console.log(color, "from name 18");
   const [counter, setCounter] = useState(0);
 
   const increment = () => {
@@ -25,40 +29,24 @@ const CartComponent = ({
   return (
     <div className="flex md:flex-row flex-col md:items-center md:space-y-0 space-y-3 justify-between py-5">
       <div className="basis-2/3 flex items-center justify-start gap-5">
-        <Image
-          src={productImage}
-          width={120}
-          height={160}
-          alt="cart imgs example"
-        />
+        <Image src="" width={120} height={160} alt="cart imgs example" />
         <div className=" flex flex-col justify-around gap-2">
-          {productDetails && (
-            <h2 className=" max-w-[250px] font-semibold text-base  md:text-lg leading-5 md:leading-6">
-              {" "}
-              {productDetails.name}
-            </h2>
-          )}
+          <h2 className=" max-w-[250px] font-semibold text-base capitalize  md:text-lg leading-5 md:leading-6">
+            {name && name}
+          </h2>
           <ul className=" *:md:text-[12px] *:text-[11px] text-[#475467]">
-            {productDetails && (
-              <li key={1} className=" leading-4">
-                Line: {productDetails.line}
-              </li>
-            )}
-            {productDetails && (
-              <li key={2} className=" leading-4">
-                Color: {productDetails.color}
-              </li>
-            )}
-            {productDetails && (
-              <li key={3} className=" leading-4">
-                Size: {productDetails.size}
-              </li>
-            )}
-            {productDetails && (
-              <li key={4} className=" leading-4">
-                Unit: {productDetails.unitPrice}
-              </li>
-            )}
+            <li key={key} className=" leading-4">
+              Line:
+            </li>
+            <li key={key} className=" leading-4">
+              Color: {color && color}
+            </li>
+            <li key={key} className=" leading-4">
+              Size: {size && size.join(", ")}
+            </li>
+            <li key={key} className=" leading-4">
+              Unit: {quantity && quantity}
+            </li>
           </ul>
           <div className=" flex gap-[11px] md:*:text-[12px] *:text-[11px]">
             <Link
@@ -83,7 +71,7 @@ const CartComponent = ({
 
           <div className="flex divide-x-2 border border-[#EAECF0]">
             <div
-              onClick={() => decrement(productId)}
+              onClick={() => decrement()}
               className=" flex items-center justify-center size-10 cursor-pointer"
             >
               <LuMinus className=" text-lg  active:scale-75" />
@@ -92,7 +80,7 @@ const CartComponent = ({
               {counter}
             </div>
             <div
-              onClick={() => increment(productId)}
+              onClick={() => increment()}
               className=" flex items-center justify-center size-10  cursor-pointer"
             >
               <GoPlus className=" text-lg  active:scale-75" />
@@ -101,14 +89,11 @@ const CartComponent = ({
         </div>
 
         <div className="basis-1/2 flex items-center justify-end gap-1 *:text-base">
-          {productDetails && (
-            <p className=" text-[#475467]">
-              {" "}
-              <strike>${productDetails.originalPrice}</strike>
-            </p>
-          )}
+          <p className=" mr-1 text-[#475467]">
+            <strike>${price && price}</strike>
+          </p>
 
-          {productDetails && <p>${productDetails.discountedPrice}</p>}
+          <p>${discountedPrice && discountedPrice}</p>
         </div>
       </div>
     </div>

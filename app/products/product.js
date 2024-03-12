@@ -38,8 +38,8 @@ const ProductPage = () => {
       setLoading(false);
       setNextPage(data.totalPages > data.currentPage);
     } catch (err) {
-      setError(true);
       setLoading(false);
+      setError(true);
     }
   };
 

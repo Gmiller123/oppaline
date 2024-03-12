@@ -18,6 +18,7 @@ const ProductSidebar = ({ setCatId, catId }) => {
   const local_url = process.env.NEXT_PUBLIC_URL; //base url
 
   const fetchChildCategory = async () => {
+    setLoading(true);
     try {
       if (parentCat.length > 0) {
         const res = await fetch(
@@ -26,6 +27,7 @@ const ProductSidebar = ({ setCatId, catId }) => {
         );
         const data = await res.json();
         setChildCat([...childCat, ...data.data]);
+        setLoading(false);
       }
     } catch (err) {
       setLoading(false);
@@ -34,12 +36,13 @@ const ProductSidebar = ({ setCatId, catId }) => {
   };
 
   useEffect(() => {
-    setLoading(true);
     const fetchCategoryApi = async () => {
+      setLoading(true);
       try {
         const res = await fetch(local_url + `/category`);
         const data = await res.json();
         setCategory(data.data);
+        setLoading(false);
       } catch (err) {
         setLoading(false);
         setError(err);
@@ -53,9 +56,6 @@ const ProductSidebar = ({ setCatId, catId }) => {
     fetchCategoryApi();
   }, [parentCat]);
 
-  if (!loading) return "Data is fetching";
-  if (error) return `${error.message}`;
-
   const handleParentCategory = (e, cat) => {
     const { checked } = e.target;
     if (checked) {
@@ -65,6 +65,12 @@ const ProductSidebar = ({ setCatId, catId }) => {
       setParentCat(null);
     }
   };
+
+  if (loading) return "Data is fetching";
+  if (error)
+    return (
+      <h3 className=" text-red-500 font-medium">Error: Failed to fetch data</h3>
+    );
 
   return (
     <div className=" col-span-2 lg:col-span-1 ">

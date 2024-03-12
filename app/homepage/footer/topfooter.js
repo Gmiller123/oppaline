@@ -7,7 +7,7 @@ import { PiHandCoins } from "react-icons/pi";
 const TopFooter = () => {
   return (
     <div className=" border-b border-[#7A0999]/10 py-5">
-      <div className=" max-w-[1350px] mx-auto px-5 md:px-8 lg:px-0">
+      <div className=" max-w-[1350px] mx-auto px-5 lg:px-10">
         <div className=" flex flex-col lg:gap-0 gap-5 lg:flex-row items-center justify-between">
           <div className=" flex flex-row items-center">
             <h3 className=" text-[20px] text-[#666666]">Follow Us :</h3>
