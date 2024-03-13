@@ -1,17 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import SizeTable from "./table";
 
 const UsualMeasurement = ({
   data,
-  sumQuantityPrice,
   size,
   showSize,
   priceCalculation,
   discountCalculation,
-  price,
-  discount,
 }) => {
   return (
     <div>
@@ -34,13 +31,13 @@ const UsualMeasurement = ({
       </span>
 
       <div className=" flex items-center gap-3">
-        {data?.size.map((size, index) => (
+        {data?.size.map((sizeCategory, index) => (
           <button
             key={index}
-            onClick={() => showSize(size)}
-            className=" uppercase hover:bg-black hover:text-white text-black bg-white px-4 py-3 border border-[#98A2B3] transition-all"
+            onClick={() => showSize(sizeCategory)}
+            className={`uppercase hover:bg-black hover:text-white text-black bg-white px-4 py-3 border border-[#98A2B3] transition-all`}
           >
-            {size}
+            {sizeCategory}
           </button>
         ))}
       </div>

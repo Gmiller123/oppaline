@@ -16,12 +16,14 @@ import { useToast } from "@/components/ui/use-toast";
 const AddToCart = ({ product }) => {
   const [value, setValue] = useState(2);
   const [currentImage, setCurrentImage] = useState(null);
-  const [colorName, setColorName] = useState(null);
+  const [colorName, setColorName] = useState([]);
   const [sumQuantityPrice, setSumQuantityPrice] = useState(1);
   const [size, setSize] = useState([]);
   const [price, setPrice] = useState();
   const [discount, setDiscount] = useState();
   const { toast } = useToast();
+  const [localStorageData, setLocalStorageData] = useState([]);
+  const [changeStates, setChangeState] = useState(null);
 
   /** for fetching single data details */
   const local_url = process.env.NEXT_PUBLIC_URL;
@@ -45,7 +47,7 @@ const AddToCart = ({ product }) => {
 
   const showSize = (newSize) => {
     if (size && size.includes(newSize)) {
-      return setSize(size.filter((size) => size !== newSize));
+      return setSize(size.filter((prevSize) => prevSize !== newSize));
     }
     setSize([...size, newSize]);
   };
@@ -62,7 +64,13 @@ const AddToCart = ({ product }) => {
   }, [data]);
 
   const handleColorId = (color) => {
-    setColorName(color.name);
+    if (colorName && colorName.includes(color.name)) {
+      return setColorName(
+        colorName.filter((prevColor) => prevColor !== color.name)
+      );
+    }
+    setColorName([...colorName, color.name]);
+
     if (color.image.length > 0) {
       setCurrentImage(
         color.image.map((item) => ({
@@ -81,11 +89,11 @@ const AddToCart = ({ product }) => {
   };
 
   const increment = () => {
-    setSumQuantityPrice(Math.abs(sumQuantityPrice + 1));
+    setSumQuantityPrice((prevSum) => Math.abs(prevSum + 1));
   };
 
   const decrement = () => {
-    setSumQuantityPrice(Math.max(1, sumQuantityPrice - 1));
+    setSumQuantityPrice((prevDecre) => Math.max(1, prevDecre - 1));
   };
 
   const priceCalculation = (data) => {
@@ -99,45 +107,88 @@ const AddToCart = ({ product }) => {
     return discount;
   };
 
+  useEffect(() => {
+    if (localStorage.getItem("preparedProduct")) {
+      let data = JSON.parse(localStorage.getItem("preparedProduct"));
+      setLocalStorageData(data);
+    }
+  }, [changeStates]);
+
   const addToCart = (data) => {
+    setChangeState({ triggered: "success" });
     let preparedProduct = {
       product_id: data?._id,
       product_quantity: sumQuantityPrice,
-      product_size: size, 
+      product_size: size,
       product_color: colorName,
     };
-
-    const localStorageData = Boolean(
-      JSON.parse(localStorage.getItem("preparedProduct"))
-    )
-      ? JSON.parse(localStorage.getItem("preparedProduct"))
-      : [];
 
     if (
       localStorageData.length > 0 &&
       localStorageData.filter((item) => item.product_id === data._id).length > 0
     ) {
-
       // Shallow copy to modify array
-      let tempCartltems = [...localStorageData]; 
+      let tempCartltems = [...localStorageData];
 
-      // get the availble product by id
-      const filteredData = localStorageData.find(
-        (item) => item.product_id === data._id
-      );
+      let tempData = [...tempCartltems];
 
-    
+      // let do filter data, fnd last in index, last ndex data get
+      const currentIndex =
+        tempData.filter((item) => item.product_id === data._id).length - 1;
+
+      // get the available product by id
+      const filteredData = tempData.at(currentIndex);
 
       // object qty, size and product color update gareko
-      preparedProduct.product_quantity = parseInt(filteredData.product_quantity) + parseInt(sumQuantityPrice);
-      preparedProduct.product_size = [...filteredData.product_size, ...size];
-      preparedProduct.product_color = [...filteredData.product_color, ...colorName]
+      preparedProduct.product_quantity =
+        parseInt(filteredData.product_quantity) + parseInt(sumQuantityPrice);
+
+      //Size condition
+      preparedProduct.product_size =
+        size.length === 0
+          ? []
+          : filteredData.product_size.filter((item) => size.includes(item))
+              .length > 0
+          ? [
+              ...filteredData.product_size.filter((item) =>
+                size.includes(!item)
+              ),
+              ...size,
+            ]
+          : [...filteredData.product_size, ...size];
+
+      //Color condition
+
+      preparedProduct.product_color =
+        colorName.length === 0
+          ? []
+          : filteredData.product_color.filter((item) =>
+              colorName.includes(item)
+            ).length > 0
+          ? [
+              ...filteredData.product_color.filter((item) =>
+                colorName.includes(!item)
+              ),
+              ...colorName,
+            ]
+          : [...filteredData.product_color, ...colorName];
 
       // update object array add gareko
       tempCartltems.push(preparedProduct);
 
-      // finallay up[date in the local storage
-      localStorage.setItem("preparedProduct", JSON.stringify(tempCartltems));
+      // finallay up[date in the local storag
+
+      tempCartltems.forEach((element, index) => {
+        if (element.product_id === preparedProduct.product_id) {
+          tempCartltems[index] = preparedProduct;
+        }
+      });
+
+      let uniqueArray = tempCartltems.filter(function (item, pos) {
+        return tempCartltems.indexOf(item) == pos;
+      });
+
+      localStorage.setItem("preparedProduct", JSON.stringify(uniqueArray));
     } else {
       preparedProduct && localStorageData.push(preparedProduct);
       localStorage.setItem("preparedProduct", JSON.stringify(localStorageData));
@@ -149,14 +200,14 @@ const AddToCart = ({ product }) => {
   };
 
   return (
-    <div className="pt-5 grid md:grid-cols-2 grid-cols-1 gap-10 pb-[72px]">
+    <div className="pt-5 grid md:grid-cols-2 grid-cols-1 gap-10 pb-[4.5rem]">
       <div
         className="abc"
         style={{
           color: "red",
           "& .image-gallery-left-nav .image-gallery-svg": {
-            height: "30px",
-            width: "30px",
+            height: "1.875rem",
+            width: "1.875rem",
           },
         }}
       >
@@ -173,11 +224,11 @@ const AddToCart = ({ product }) => {
           />
         )}
       </div>
-      <div className=" *:mb-[8px]  md:*:mb-[15px]">
+      <div className=" *:mb-[.5rem]  md:*:mb-[.9375rem]">
         <h6 className=" text-[#890DAB] text-sm md:text-xl font-medium uppercase">
           {data?.name}
         </h6>
-        <h3 className="text-[#333] text-sm md:text-[16px] font-medium">
+        <h3 className="text-[#333] text-sm md:text-[1rem] font-medium">
           {data?.content}
         </h3>
         <h5 className=" text-sm md:text-lg text-[#000] font-medium">NEW IN</h5>
@@ -197,23 +248,23 @@ const AddToCart = ({ product }) => {
             />
           </Box>
 
-          <h5 className="text-sm text-[#98A2B3] pl-[5px]">(120)</h5>
+          <h5 className="text-sm text-[#98A2B3] pl-[.3125rem]">(120)</h5>
           {/* <Link
         href="#"
-        className="bg-[#FCEBFF] hover:bg-[#B13CCD] px-[15px] py-2 rounded-[6px] text-[12px] md:text-sm hover:text-white ml-5 transition"
+        className="bg-[#FCEBFF] hover:bg-[#B13CCD] px-[.9375rem] py-2 rounded-[.375rem] text-[.75rem] md:text-sm hover:text-white ml-5 transition"
       >
         Add your review
       </Link> */}
         </div>
         <div className="space-y-3">
-          <h4 className="capitalize">Colors: {colorName}</h4>
-          <span className=" flex items-center gap-[10px]">
+          <h4 className="capitalize">Colors: {colorName.join(", ")} </h4>
+          <span className=" flex items-center gap-[.625rem]">
             {data?.color.map((color) => {
               return (
                 <button
                   key={color?._id}
                   onClick={() => handleColorId(color)}
-                  className={`bg-[${color.color_code}] size-[22px] hover:outline hover:outline-1 hover:outline-offset-2 rounded-full  cursor-pointer`}
+                  className={`bg-[${color.color_code}]  size-[1.375rem] hover:outline hover:outline-1 hover:outline-offset-2 rounded-full  cursor-pointer`}
                 ></button>
               );
             })}

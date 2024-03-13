@@ -19,8 +19,6 @@ const Cart = () => {
     }
   }, []);
 
-  console.log(productData, "product Data");
-
   return (
     <div className="pt-5 pb-[50px] md:pb-[100px]">
       <div className=" max-w-[1390px] mx-auto px-5">
@@ -40,20 +38,8 @@ const Cart = () => {
               </h5>
             </div>
             <div className=" divide-y">
-              {productData?.map((item) => {
-                console.log(item, "from 45");
-                return (
-                  <CartComponent
-                    name={item.product_name}
-                    price={item.product_price}
-                    discountedPrice={item.discounted_price}
-                    color={item.product_color}
-                    size={item.product_size}
-                    quantity={item.product_quantity}
-                    image={item.product_image}
-                    key={item.product_id}
-                  />
-                );
+              {productData?.map((product) => {
+                return <CartComponent productData={product} />;
               })}
             </div>
           </div>

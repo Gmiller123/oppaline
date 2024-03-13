@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.btn.active {
+  background-color: black;
+  color: white;
+}
+
 #overlappingText {
   text-shadow: 0px 4px 0px #7a0999, 4px 4px 0px #7a0999, 4px -4px 0px #7a0999,
     -4px 4px 0px #7a0999, -4px -4px 0px #7a0999;
